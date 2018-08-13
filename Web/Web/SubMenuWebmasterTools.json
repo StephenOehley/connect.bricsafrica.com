@@ -1,0 +1,29 @@
+﻿{
+  "Items" : [
+    {
+      "DisplayName" : "Product Administration",
+      "Url" : "/webmaster-tools/product-administration",
+      "IsActive" : false,
+      "AllowedRoles" : [
+        "Webmaster"
+      ]
+    },
+    {
+      "DisplayName" : "Category Administration",
+      "Url" : "/webmaster-tools/category-administration",
+      "IsActive" : false,
+      "AllowedRoles" : [
+        "Webmaster"
+      ]
+    },
+    {
+      "DisplayName" : "Reseller Administration",
+      "Url" : "/webmaster-tools/reseller-administration",
+      "IsActive" : false,
+      "AllowedRoles" : [
+        "Webmaster"
+      ]
+    }
+  ],
+  "MenuName" : "SubMenuWebmasterTools"
+}

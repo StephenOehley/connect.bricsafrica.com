@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="@Url.Content("http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css")" type="text/css" />
+    @RenderSection("head", false)
+</head>
+<body>
+    <div id="page" data-role="page" class="pagewide">
+        <div id="header" data-role="header">
+            @RenderSection("header", false)
+        </div>
+        <div id="main" data-role="content">
+            @RenderSection("body", false)
+        </div>
+        <div id="footer" data-role="content">
+            @RenderSection("footer", false)
+        </div>
+    </div>
+</body>
+</html>

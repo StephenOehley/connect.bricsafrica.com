@@ -1,0 +1,146 @@
+﻿@model BricsWeb.LocalModels.ProductSearchResultModel
+@{
+    ViewBag.Title = "Product Detail";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<div class="form-profile">
+    <div class="product-main-container">
+        <div class="product-search-container">
+            <div class="searchresult-header">
+                <div class="search-title text-searchheaders leftmargin left">Product Details</div>
+            </div>
+            <div class="resultproduct">
+                <div class="product clearfix">                    
+                        <div class="product-image-240">
+                            <img alt="Product Image" height="240" src="@Model.Product.PhotoUrl" width="240">
+                        </div>
+                        <div class="productdetail-text">
+                            <p class="product-title">
+                                @Model.Product.ProductName
+                            </p>
+                            <p class="product-fieldbold">
+                                Min.Order: <span class="product-fieldspan">@Model.Product.MinimumOrderQuantity</span>
+                            </p>
+                            <p class="product-fieldbold">
+                                FOB Price: <span class="product-fieldspan">US $ @Model.Product.FobPrice</span>
+                            </p>
+                            <p class="product-fieldbold">
+                                Port: <span class="product-fieldspan">@Model.Product.Port</span>
+                            </p>
+                            <p class="product-fieldbold">
+                                Supply Ability: <span class="product-fieldspan">@Model.Product.SupplyAbility</span>
+                            </p>
+                            <p class="product-fieldbold">
+                                Payment Terms: <span class="product-fieldspan">@Model.Product.PaymentTerms</span>
+                            </p>
+                        </div>
+                        <div class="product-contact right">
+                            <div>
+                                @if (Model.IsGreenCertified)
+                                {
+                                    <div class="product-badge">
+                                        <img alt="Green Badge" src="../../Content/Images/BusinessGenerator/BadgeGreen.png"/>
+                                    </div>
+                        }
+                                @if (Model.IsChamberCertified)
+                                {
+                                    <div class="product-badge">
+                                        <img alt="Chamber Badge" src="../../Content/Images/BusinessGenerator/BadgeChamber.png"/>
+                                    </div>
+                        }
+                                @if (Model.IsVerified)
+                                {
+                                    <div class="product-badge">
+                                        <img alt="Verified Badge" src="../../Content/Images/BusinessGenerator/BadgeVerified.png"/>
+                                    </div>
+                        }
+                                @if (Model.CompanySubscriptionLevel == 0)
+                                {
+                                    <div class="product-badge">
+                                        <img alt="Bronze Badge" src="../../Content/Images/BusinessGenerator/BadgeBronze.png"/>
+                                    </div>
+                        }
+                                @if (Model.CompanySubscriptionLevel == 1)
+                                {
+                                    <div class="product-badge">
+                                        <img alt="Silver Badge" src="../../Content/Images/BusinessGenerator/BadgeSilver.png"/>
+                                    </div>
+                        }
+                                @if (Model.CompanySubscriptionLevel == 2)
+                                {
+                                    <div class="product-badge">
+                                        <img alt="Gold Badge" src="../../Content/Images/BusinessGenerator/BadgeGold.png"/>
+                                    </div>
+                        }
+                                @if (Model.CompanySubscriptionLevel == 3)
+                                {
+                                    <div class="product-badge">
+                                        <img alt="Gold Badge" src="../../Content/Images/BusinessGenerator/BadgePlatinum.png"/>
+                                    </div>
+                        }
+                            </div>
+                            <div class="product-contactdetail">
+                                <p class="product-fieldname">
+                                    <a href="/company/details?id=@Model.CompanyID">@Model.CompanyName</a>
+                                </p>
+                                <p class="product-fieldtype">
+                                    @Model.BusinessType
+                                </p>
+                            </div>
+                            <div class="contactsupplier">
+                                <a id="contactsupplier" href="/contact/sendmessage?id=@Model.CompanyID&formTitle=Supplier&subject=@Url.Encode(Model.Product.ProductName)" class="left"></a>
+                            </div>
+                        </div>
+                        <div class="product-detail-more">
+                        <p class="product-fieldbold">
+                            Brand Name: <span class="product-fieldspan">@Model.Product.BrandName</span>
+                        </p>
+                        <p class="product-fieldbold">
+                            Model Number: <span class="product-fieldspan">@Model.Product.ModelNumber</span>
+                        </p>
+                        <p class="product-fieldbold">
+                            Place of Origin: <span class="product-fieldspan">@Model.Product.PlaceOfOrigin</span>
+                        </p>
+                        <p class="product-fieldbold">
+                            Quality: <span class="product-fieldspan">@Model.Product.Quality</span>
+                        </p>
+                        <p class="product-fieldbold">
+                            Color: <span class="product-fieldspan">@Model.Product.Colour</span>
+                        </p>
+                        <p class="product-fieldbold">
+                            Description:
+                        </p>
+                        <p class="product-fieldspan">
+                            @Model.Product.Description
+                        </p>
+                        <p class="product-fieldbold">
+                            Specification:
+                        </p>
+                        <p class="product-fieldspan">
+                            @Model.Product.Specifications
+                        </p>
+                        <p class="product-fieldbold">
+                            Packaging &amp; Delivery:
+                        </p>
+                        <p class="product-fieldspan">
+                            @Model.Product.PackagingAndDelivery
+                        </p>
+                    </div>                       
+                </div>
+            </div>
+           @Html.Action("GetMoreCompanyProductsAsPartialView", "Product", new {id = Model.CompanyID })
+        </div>
+    </div>
+    <div class="sponsor-all-column">
+        <div class="sponsor-ad-c3-plat sponsor-platinum-200x275">
+            <div class="sponsor-ad-c3-plat-title"><a href="http://www.dhl.co.za">DHL</a></div>
+        </div>
+        <div class="sponsor-ad-c3-gold sponsor-gold-200x275">
+            <div class="sponsor-ad-c3-gold-title"><a href="http://www.netsurit.com/">Netsurit</a></div>
+        </div>
+        <div class="sponsor-ad-c3-silver sponsor-silver-200x275">
+            <div class="sponsor-ad-c3-silver-title"><a href="http://www.teraco.co.za">Teraco</a></div>
+        </div>
+    </div>
+</div>

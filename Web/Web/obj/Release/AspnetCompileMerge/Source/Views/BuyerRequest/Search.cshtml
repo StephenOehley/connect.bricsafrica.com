@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Buyer Search";
+    ViewBag.CountrySelectItemList = BricsWeb.WebHelper.DropdownGenerator.GetCountrySelectList();
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<div class="form-profile">
+ <div id="searchbar" class="searchbar-container">
+        <div class="searchbar-left">
+            <div class="searchbar-left-inner">
+                <div id="CategoryDropdownContainer" class="category-container">
+                    @Html.Action("GetCategoryDropdownAsPartialView", "Category")
+                </div>
+                <div class="search-input-container">
+                    <input id="SearchInput" type="text" class="searchinput text-allcontent left" />
+                </div>
+                <div class="search-image-container">
+                    <input type="image" src="../../Content/Images/BusinessGenerator/Search.png" class="search-go left" id="SearchButton" />
+                </div>
+            </div>
+        </div>
+        <div class="searchbar-right">
+            <div class="searchbar-right-inner">
+                @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.CountrySelectItemList, new { @class = "countryregion text-allcontent" })
+            </div>
+        </div>
+    </div>
+<div id="BreadCrumbNavigationContainer" class="branchview text-allcontent">
+        @Html.Action("GetNavigationBreadcrumbAsPartialView", "Category", new { categoryid = "0", leadstring = "Home>Buyer Requirments>" })
+</div>
+<br />
+    <div class="product-main-container">
+        <div class="buyer-search-container">
+            <div class="searchresult-header">
+                <div class="search-title text-searchheaders leftmargin left">
+                    Buyer Requests
+                </div>
+            </div>
+    <div id="ResultsContainer" class="resultproduct">
+      @Html.Action("GetSearchResultsAsPartialView","BuyerRequest")
+    </div>
+   
+ <div class="searchdetail-footer"></div>   
+    
+</div>
+    </div>
+
+          <div class="sponsor-all-column">
+        <div class="sponsor-ad-c3-plat sponsor-platinum-200x275">
+            <div class="sponsor-ad-c3-plat-title"><a href="http://www.dhl.co.za">DHL</a></div>
+        </div>
+        <div class="sponsor-ad-c3-gold sponsor-gold-200x275">
+            <div class="sponsor-ad-c3-gold-title"><a href="http://www.netsurit.com/">Netsurit</a></div>
+        </div>
+        <div class="sponsor-ad-c3-silver sponsor-silver-200x275">
+            <div class="sponsor-ad-c3-silver-title"><a href="http://www.teraco.co.za">Teraco</a></div>
+        </div>
+    </div>
+
+	</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+  //  $(document).ready(function () {
+ 
+  //  });
+
+    $("#SearchButton").click(function () {
+        Search();
+    });
+
+    function Search() {
+        var searchText = encodeURIComponent($('#SearchInput').val());
+        var selectedCountryText = encodeURIComponent($('#Country').val());
+        var selectedCategoryID = $('#Category').val();
+
+
+        $.get('/Category/GetNavigationBreadcrumbAsPartialView?categoryid=' + encodeURIComponent(selectedCategoryID) + '&leadstring=Home%3EBuyer%20Requirments%3E', function (data) {
+            $('#BreadCrumbNavigationContainer').html(data);
+        })
+
+         //alert('selectedCategoryID=' + selectedCategoryID + 'currentPage=' + currentPage + 'productsPerPage=' + productsPerPage + 'searchtext=' + searchText + 'country=' + selectedCountryText + 'maxpage=' + maxPage);
+        $.get('/buyerrequest/GetSearchResultsAsPartialView?categoryID=' + encodeURIComponent(selectedCategoryID) + '&searchText=' + searchText + '&country=' + selectedCountryText, function (data) {
+            $('#ResultsContainer').html(data);
+        })
+
+
+        
+    }
+        
+</script>

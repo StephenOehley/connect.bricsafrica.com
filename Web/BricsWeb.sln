@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22967F81-7177-4E9E-9EFA-1BA329D36C87}"
+	ProjectSection(SolutionItems) = preProject
+		BricsWeb.vsmdi = BricsWeb.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dll", "dll", "{A949E3DC-B79D-469B-BEDD-E990E17FDE9B}"
+	ProjectSection(SolutionItems) = preProject
+		dll\AxisApp.dll = dll\AxisApp.dll
+		dll\AzureHelper.dll = dll\AzureHelper.dll
+		dll\Elmah.dll = dll\Elmah.dll
+		dll\ImageResizer.dll = dll\ImageResizer.dll
+		dll\Microsoft.ApplicationServer.Caching.Client.dll = dll\Microsoft.ApplicationServer.Caching.Client.dll
+		dll\Microsoft.ApplicationServer.Caching.Core.dll = dll\Microsoft.ApplicationServer.Caching.Core.dll
+		dll\Microsoft.IdentityModel.dll = dll\Microsoft.IdentityModel.dll
+		dll\Microsoft.IdentityModel.WindowsTokenService.dll = dll\Microsoft.IdentityModel.WindowsTokenService.dll
+		dll\Microsoft.ServiceBus.dll = dll\Microsoft.ServiceBus.dll
+		dll\Microsoft.Web.DistributedCache.dll = dll\Microsoft.Web.DistributedCache.dll
+		dll\Microsoft.WindowsAzure.CloudDrive.dll = dll\Microsoft.WindowsAzure.CloudDrive.dll
+		dll\Microsoft.WindowsAzure.Configuration.dll = dll\Microsoft.WindowsAzure.Configuration.dll
+		dll\Microsoft.WindowsAzure.Diagnostics.dll = dll\Microsoft.WindowsAzure.Diagnostics.dll
+		dll\Microsoft.WindowsAzure.ServiceRuntime.dll = dll\Microsoft.WindowsAzure.ServiceRuntime.dll
+		dll\Microsoft.WindowsAzure.StorageClient.dll = dll\Microsoft.WindowsAzure.StorageClient.dll
+		dll\Microsoft.WindowsFabric.Common.dll = dll\Microsoft.WindowsFabric.Common.dll
+		dll\Microsoft.WindowsFabric.Data.Common.dll = dll\Microsoft.WindowsFabric.Data.Common.dll
+		dll\msshrtmi.dll = dll\msshrtmi.dll
+		dll\MvcHelper.dll = dll\MvcHelper.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8F714D46-0EC6-4BE4-9B2C-EC6142DF2384}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "certificates", "certificates", "{CF4F2EA3-65ED-4019-9290-FDCD92732049}"
+	ProjectSection(SolutionItems) = preProject
+		certificates\matchmaker.pfx = certificates\matchmaker.pfx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRole", "Web\WebRole.csproj", "{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Debug|x64.ActiveCfg = Debug|x64
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Debug|x64.Build.0 = Debug|x64
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Release|x64.ActiveCfg = Release|x64
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Release|x64.Build.0 = Release|x64
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Release|x86.ActiveCfg = Release|Any CPU
+		{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = BricsWeb.vsmdi
+	EndGlobalSection
+EndGlobal

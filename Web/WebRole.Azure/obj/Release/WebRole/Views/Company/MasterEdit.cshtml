@@ -1,0 +1,27 @@
+﻿@model BricsWeb.LocalModels.CompanyViewModel[]
+
+@{
+    ViewBag.Title = "MasterEdit";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<h2>Master Company Edit</h2>
+<br />
+
+@foreach (BricsWeb.LocalModels.CompanyViewModel company in Model)
+{
+    <a href="/company/details?id=@company.CompanyData.RowKey">@company.CompanyData.Name</a><a href="/company/masterdelete?id=@company.CompanyData.RowKey">&nbsp;&nbsp;[DELETE]</a><br />
+    
+        <div>
+        Verified Status: @company.CompanyData.IsVerified.ToString()
+        @if (!company.CompanyData.IsVerified)
+        {
+            <a href="/company/verifyon?id=@company.CompanyData.RowKey">[Set As Verified]</a>
+    }
+        else
+        { 
+            <a href="/company/verifyoff?id=@company.CompanyData.RowKey">[Remove Verification]</a>
+    }
+    </div>
+    <br />
+}

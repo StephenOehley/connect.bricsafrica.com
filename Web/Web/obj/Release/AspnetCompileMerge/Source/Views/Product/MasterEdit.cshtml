@@ -1,0 +1,14 @@
+﻿@model BricsWeb.LocalModels.ProductViewModel[]
+
+@{
+    ViewBag.Title = "MasterEdit";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<h2>Master Product Edit</h2>
+<br />
+
+@foreach (BricsWeb.LocalModels.ProductViewModel product in Model)
+{
+    <a href="/product/details?id=@product.ProductData.RowKey">@product.CompanyName >> @product.ProductData.ProductName</a><a href="/product/masterdelete?id=@product.ProductData.RowKey">&nbsp;&nbsp;[DELETE]</a><br />
+}

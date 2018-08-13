@@ -1,0 +1,105 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BricsWeb.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SubscriptionPrice" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1500</Value>
+    </Setting>
+    <Setting Name="Hash" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C3949A8356964E6AB66577F54BE732F1</Value>
+    </Setting>
+    <Setting Name="TerminalID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1639</Value>
+    </Setting>
+    <Setting Name="SmtpHostName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+    <Setting Name="SmtpUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">noreply@bricsafricab2b.com</Value>
+    </Setting>
+    <Setting Name="SmtpPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">brics@brics@</Value>
+    </Setting>
+    <Setting Name="SmtpFromAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">noreply@bricsafricab2b.com</Value>
+    </Setting>
+    <Setting Name="Tier1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="Tier2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="Tier3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">7.5</Value>
+    </Setting>
+    <Setting Name="Tier4" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">3.75</Value>
+    </Setting>
+    <Setting Name="LocalCon" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DefaultEndpointsProtocol=https;AccountName=matchmaker;AccountKey=FxBIcZhwb4cRX8JL3EtaE3JPjFjqpqNcSDgDweCCQI0vehIJafEdCDno7vdcUbI02d1VRB5/psxRPS6iF+ZyeA==</Value>
+    </Setting>
+    <Setting Name="AzureUserTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AzureUserTest</Value>
+    </Setting>
+    <Setting Name="AzureRoleTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AzureRoleTest</Value>
+    </Setting>
+    <Setting Name="DefaultCategoryRowkey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">886a360b-9a21-4bb7-bba9-98cb5c4af9f0</Value>
+    </Setting>
+    <Setting Name="IsDiagnosticsModeEnabled" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">false</Value>
+    </Setting>
+    <Setting Name="ConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DefaultEndpointsProtocol=https;AccountName=matchmaker;AccountKey=FxBIcZhwb4cRX8JL3EtaE3JPjFjqpqNcSDgDweCCQI0vehIJafEdCDno7vdcUbI02d1VRB5/psxRPS6iF+ZyeA==</Value>
+    </Setting>
+    <Setting Name="CategoryTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Category</Value>
+    </Setting>
+    <Setting Name="CompanyTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Company</Value>
+    </Setting>
+    <Setting Name="CompanySubscriptionTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CompanySubscription</Value>
+    </Setting>
+    <Setting Name="ProductTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Product</Value>
+    </Setting>
+    <Setting Name="TransactionTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Transaction</Value>
+    </Setting>
+    <Setting Name="BaseUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://connect.bricsafricab2b.com/</Value>
+    </Setting>
+    <Setting Name="HrdFeed" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://matchmaker.accesscontrol.windows.net:443/v2/metadata/IdentityProviders.js?protocol=wsfederation&amp;realm=http%3a%2f%2fmatchmakerapplication.cloudapp.net%2f&amp;reply_to=http%3a%2f%2fconnect.bricsafricab2b.com%2f&amp;context=&amp;request_id=&amp;version=1.0&amp;callback=?</Value>
+    </Setting>
+    <Setting Name="BuyerRequestTable" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BuyerRequest</Value>
+    </Setting>
+    <Setting Name="ProductHomeProductCount" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="PlatinumBannerProductCount" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="SilverGoldBannerProductCount" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="FlagUrlPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://matchmaker.blob.core.windows.net/flags/%COUNTRYCODE%.png</Value>
+    </Setting>
+    <Setting Name="NoImage120Url" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://matchmaker.blob.core.windows.net/image/NoImage120.jpg</Value>
+    </Setting>
+    <Setting Name="NoImage160Url" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://matchmaker.blob.core.windows.net/image/NoImage160.jpg</Value>
+    </Setting>
+    <Setting Name="NoImage240Url" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://matchmaker.blob.core.windows.net/image/NoImage240.jpg</Value>
+    </Setting>
+    <Setting Name="GoldProductWeight" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

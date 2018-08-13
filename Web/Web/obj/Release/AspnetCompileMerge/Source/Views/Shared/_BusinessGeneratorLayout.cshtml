@@ -1,0 +1,42 @@
+﻿@{
+	Layout = "_Layout.cshtml";
+}
+
+@section head
+{
+    @*Metadata*@
+    <meta content="BRICS, BRICS Africa, B2B, Business Generator, Export, Import, Forum, Virtual Trade Show, Exhibition, Events, Manufacturers, Suppliers, Exporters, Importers, Products, Trade Leads, Supplier, Manufacturer," name="keywords" />
+    <meta content="BRICS Africa is a Portfolio of connected services to support BRICS Africa trade promotion, engagement and investment." name="description" />
+
+    @*Stylesheets*@
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/BusinessGeneratorSitev2.css")" type="text/css" />
+     @*Favicon*@
+    <link rel="shortcut icon" href="@Url.Content("~/Content/Images/BusinessGenerator/favicon.ico")" type="image/x-icon" />
+    @*Scripts*@
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/googlePlusAsync.js"></script>
+    @*<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>*@
+
+    <script src="../../Scripts/googleAnalytics.js" type="text/javascript"></script>
+    <script src="../../Scripts/bricsClocks.js" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="../../Scripts/resizeManager.js"></script>
+}
+
+@section header
+{
+    @Html.Partial("_BusinessGeneratorBanner")	
+    @Html.Partial("_BusinessGeneratorNavigation")
+}
+
+@section body
+{
+    @RenderBody()
+}
+
+@section footer
+{
+    @Html.Partial("_BusinessGeneratorFooter")
+}
+

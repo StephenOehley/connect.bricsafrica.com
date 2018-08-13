@@ -1,0 +1,72 @@
+﻿@model BricsWeb.LocalModels.PurchaseViewModel
+
+@{
+    ViewBag.Title = "Purchase";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class="form-profile">
+@using (Html.BeginForm("PurchaseRequest","Payment")) {
+    @Html.ValidationSummary(true)
+    	<h1 class="text-be-formcontent">Purchase Subscription</h1>
+    <br />
+    <fieldset class="text-allcontent">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccountsEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AccountsEmail)
+            @Html.ValidationMessageFor(model => model.AccountsEmail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VatNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VatNumber)
+            @*@Html.ValidationMessageFor(model => model.VatNumber)*@
+        </div>
+
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.SelectedProduct.ID)
+            @Html.HiddenFor(model => model.AmountDue)
+        </div>
+
+        <br />
+        <p>
+            <div>
+                You have selected the following product for purchase :
+                <br />
+                <br />
+                1 x @Model.SelectedProduct.Name [@Model.SelectedProduct.DisplayPrice]
+                <br />
+                <br />
+                @if (ViewBag.IsProrata)
+                {
+                   <p>Prorata discount = @ViewBag.ProrataDiscount</p>
+                    <br />
+                    <br />
+                }
+                
+                Please proceed to payment page in order to complete your order<br />
+                Total Due: @Model.DisplayAmount
+                <br />
+                <br />
+            </div>
+            <input type="submit" value="Purchase Now" style="width:150px;"/>
+            <br />
+            <br />
+        </p>
+    </fieldset>
+}
+</div>

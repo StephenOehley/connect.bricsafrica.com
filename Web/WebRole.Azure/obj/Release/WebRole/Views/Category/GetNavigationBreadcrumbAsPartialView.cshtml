@@ -1,0 +1,12 @@
+﻿@model BricsWeb.Models.CategoryModel[]
+
+<div>
+@ViewBag.LeadString
+
+@foreach (BricsWeb.Models.CategoryModel category in Model.ToList())
+{
+    <a href ="#@category.RowKey" class="categoryselectlink breadcrumblink">
+        @category.Name >
+    </a>             
+}
+</div>

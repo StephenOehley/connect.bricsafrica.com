@@ -1,0 +1,80 @@
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Data\backup.json
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Startup\Startup.cmd
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\BricsWeb.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\BricsWeb.pdb
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\AxisApp.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\AzureHelper.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Elmah.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\FizzWare.NBuilder.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\ImageResizer.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Microsoft.IdentityModel.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Microsoft.WindowsAzure.ServiceRuntime.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Microsoft.WindowsAzure.StorageClient.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Microsoft.WindowsFabric.Common.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Microsoft.WindowsFabric.Data.Common.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\MvcHelper.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\PresentationCore.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\PresentationFramework.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\ServiceStack.Text.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Data.SqlServerCe.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.Abstractions.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.ApplicationServices.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.DynamicData.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.Helpers.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.Mvc.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.Razor.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.WebPages.Deployment.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.WebPages.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.WebPages.Razor.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Microsoft.Web.Infrastructure.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\Microsoft.WindowsAzure.ServiceRuntime.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\ServiceStack.Text.pdb
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\ServiceStack.Text.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.Helpers.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.Mvc.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.Razor.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.WebPages.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.WebPages.Deployment.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\System.Web.WebPages.Razor.xml
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\obj\Release\BricsWeb.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\obj\Release\BricsWeb.pdb
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\bin\msshrtmi.dll
+C:\Workspace\CrystalTouch\MatchMaker\BricsWeb\Web\Web\obj\Release\WebRole.csprojResolveAssemblyReference.cache
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\obj\Release\WebRole.csprojResolveAssemblyReference.cache
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Data\backup.json
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Startup\Startup.cmd
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\BricsWeb.dll.config
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\BricsWeb.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\BricsWeb.pdb
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\AxisApp.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\AzureHelper.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Elmah.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\FizzWare.NBuilder.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\ImageResizer.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Microsoft.IdentityModel.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Microsoft.WindowsAzure.StorageClient.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Microsoft.WindowsFabric.Common.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Microsoft.WindowsFabric.Data.Common.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\MvcHelper.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\PresentationCore.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\PresentationFramework.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\ServiceStack.Text.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Data.SqlServerCe.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.Abstractions.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.ApplicationServices.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.DynamicData.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\Microsoft.WindowsAzure.ServiceRuntime.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\ServiceStack.Text.pdb
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\ServiceStack.Text.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.Helpers.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.Mvc.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.Razor.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.WebPages.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\obj\Release\BricsWeb.dll
+C:\Users\za601052\Documents\Visual Studio 2015\Projects\BricsWeb\Web\Web\obj\Release\BricsWeb.pdb

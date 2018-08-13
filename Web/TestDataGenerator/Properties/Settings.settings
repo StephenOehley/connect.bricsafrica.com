@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TestDataGenerator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CategoryTable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Category</Value>
+    </Setting>
+    <Setting Name="CompanyTable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Company</Value>
+    </Setting>
+    <Setting Name="CompanySubscriptionTable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Subscription</Value>
+    </Setting>
+    <Setting Name="ProductTable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Product</Value>
+    </Setting>
+    <Setting Name="TransactionTable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Transaction</Value>
+    </Setting>
+    <Setting Name="AzureUserTable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AzureUser</Value>
+    </Setting>
+    <Setting Name="AzureRoleTable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AzureRole</Value>
+    </Setting>
+    <Setting Name="BuyerRequestTable" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BuyerRequest</Value>
+    </Setting>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">UseDevelopmentStorage=true</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

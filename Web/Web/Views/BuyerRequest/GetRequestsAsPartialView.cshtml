@@ -1,0 +1,7 @@
+﻿@model BricsWeb.Models.BuyerRequestModel[]
+           
+@foreach (BricsWeb.Models.BuyerRequestModel r in Model)
+{
+  <a href="#@r.RowKey" class="editlink">@r.RequestTitle</a>
+  <br />
+}

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "GettingStarted";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<div class="form-profile">
+  @*  <div class="getstarted-content">
+		<a href="http://hellotweeter.co.za/bricsafrica">
+		<img class="imagecenternew" alt="" src="../../Content/Images/BusinessGenerator/bricsafricafeed.jpg" /></a>
+	</div>*@
+    <br />
+    <div class="getstarted-content">
+        <br />
+        <a href="#SignUp"><img src="../../Content/Images/BusinessGenerator/BRICSSplashpageRev1.jpg"  class="imagecenternew" /><br /></a>
+    </div>
+    <br />
+</div>
+
+<a name="SignUp"></a> 
+@Html.Action("GetSignupFormAsPartialView", "Account")
+<br />

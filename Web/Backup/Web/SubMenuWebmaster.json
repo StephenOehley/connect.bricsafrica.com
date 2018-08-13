@@ -1,0 +1,29 @@
+{
+  "Items" : [
+    {
+      "DisplayName" : "Company Master Edit",
+      "Url" : "/Company/MasterEdit",
+      "IsActive" : false,
+      "AllowedRoles" : [
+		"Webmaster"
+      ]
+    },
+    {
+      "DisplayName" : "Product Master Edit",
+      "Url" : "/Product/MasterEdit",
+      "IsActive" : false,
+      "AllowedRoles" : [
+	   "Webmaster"
+      ]
+    },
+	{
+      "DisplayName" : "Category Editor",
+      "Url" : "/Category/Edit",
+      "IsActive" : false,
+      "AllowedRoles" : [
+	   "Webmaster"
+      ]
+    }
+  ],
+  "MenuName" : "SubMenuFindAProduct"
+}

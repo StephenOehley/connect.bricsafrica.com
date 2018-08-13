@@ -1,0 +1,21 @@
+﻿@model BricsWeb.Models.ProductModel[]
+
+<div class="featured-products-silvergold-container">
+    <div class="category-header">
+        <div class="text-searchheaders">
+            <a href="" class="categoryselectlink text-black">Featured Products</a>
+        </div>
+    </div>
+
+    @foreach (BricsWeb.Models.ProductModel featuredProduct in Model)
+    {
+         <a href="/Product/Details?id=@featuredProduct.RowKey" target="_blank">
+            <div class="featured-silvergold">
+                <div class="silvergold-image">
+                    <img alt="notavailable" height="120" src="@featuredProduct.PhotoUrl" width="120" />
+                </div>
+                <div class="silvergold-title">@featuredProduct.ProductName</div>
+            </div>
+        </a>       
+    }
+</div>

@@ -1,0 +1,35 @@
+﻿{
+  "Items" : [
+    {
+      "DisplayName" : "Personal Profile",
+      "Url" : "/account/updateuser",
+      "IsActive" : false,
+     "AllowedRoles" : []
+    },
+    {
+      "DisplayName" : "Company Profile",
+      "Url" : "/company/edit",
+      "IsActive" : false,
+      "AllowedRoles" : []
+    },
+    {
+      "DisplayName" : "Product Profile",
+      "Url" : "/product/edit",
+      "IsActive" : false,
+      "AllowedRoles" : []
+    },
+    {
+      "DisplayName" : "Buyer Profile",
+      "Url" : "/buyerrequest/edit",
+      "IsActive" : false,
+      "AllowedRoles" : []
+    },
+	{
+      "DisplayName" : "Upgrade Account",
+      "Url" : "/payment/select",
+      "IsActive" : false,
+      "AllowedRoles" : []
+    }
+  ],
+  "MenuName" : "SubMenuMyProfile"
+}

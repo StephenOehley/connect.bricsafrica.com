@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=152368
+  -->
+<configuration>
+  <configSections>  
+    <!--ACS Start-->
+    <section name="microsoft.identityModel" type="Microsoft.IdentityModel.Configuration.MicrosoftIdentityModelSection, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <!--ACS End-->
+    <!--OutputCache Start-->
+    <!--<section name="dataCacheClients" type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" allowLocation="true" allowDefinition="Everywhere" />-->
+    <!--OutputCache End-->
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="BricsWeb.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </sectionGroup>
+    <sectionGroup name="elmah">
+      <section name="security" requirePermission="false" type="Elmah.SecuritySectionHandler, Elmah" />
+      <section name="errorLog" requirePermission="false" type="Elmah.ErrorLogSectionHandler, Elmah" />
+      <section name="errorMail" requirePermission="false" type="Elmah.ErrorMailSectionHandler, Elmah" />
+      <section name="errorFilter" requirePermission="false" type="Elmah.ErrorFilterSectionHandler, Elmah" />
+    </sectionGroup>
+  </configSections>
+  <!--<system.diagnostics>
+    <trace>
+      <listeners>
+        <add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener, Microsoft.WindowsAzure.Diagnostics, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" name="AzureDiagnostics">
+          <filter type="" />
+        </add>
+      </listeners>
+    </trace>
+  </system.diagnostics>-->
+  <appSettings>
+    <!--ACS Start-->
+    <add key="FederationMetadataLocation" value="https://matchmaker.accesscontrol.windows.net/FederationMetadata/2007-06/FederationMetadata.xml" />
+    <!--ACS End-->
+    <add key="webpages:Version" value="1.0.0.0"/>
+    <!--<add key="webpages:Enabled" value="true" />-->
+    <add key="PreserveLoginUrl" value="true" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="enableSimpleMembership" value="false" />
+    <add key="ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=matchmaker;AccountKey=FxBIcZhwb4cRX8JL3EtaE3JPjFjqpqNcSDgDweCCQI0vehIJafEdCDno7vdcUbI02d1VRB5/psxRPS6iF+ZyeA=="/>
+    <!--<add key="ConnectionString" value="UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://ipv4.fiddler" />-->
+    <!--<add key="ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=bricstest;AccountKey=t4Hb8djSI7cy05GGcdvPdqZorxO6DsxjMqh+mpIpzwuNLxTyjkHX3aCaMc2Zf0hiHfqGeACfk9IwYKbCJ8rEHQ=="/>-->
+  </appSettings>
+  <!--OutputCache Start-->
+  <!--<dataCacheClients>
+    <tracing sinkType="DiagnosticSink" traceLevel="Error" />
+    <dataCacheClient name="default" maxConnectionsToServer="2">
+      <autoDiscover isEnabled="true" identifier="Webrole" />
+      --><!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />--><!--
+    </dataCacheClient>
+    <dataCacheClient name="Product" maxConnectionsToServer="2">
+      <autoDiscover isEnabled="true" identifier="Webrole" />
+      --><!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />--><!--
+    </dataCacheClient>
+    <dataCacheClient name="Category" maxConnectionsToServer="2">
+      <autoDiscover isEnabled="true" identifier="Webrole" />
+      --><!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />--><!--
+    </dataCacheClient>
+    <dataCacheClient name="Company" maxConnectionsToServer="2">
+      <autoDiscover isEnabled="true" identifier="Webrole" />
+      --><!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />--><!--
+    </dataCacheClient>    
+    <dataCacheClient name="CompanySubscription" maxConnectionsToServer="2">
+      <autoDiscover isEnabled="true" identifier="Webrole" />
+      --><!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />--><!--
+    </dataCacheClient>
+  </dataCacheClients>-->
+  <!--OutputCache End-->
+  <system.web>
+    <!--<caching>
+      --><!--<outputCache defaultProvider="DistributedCache">
+        <providers>
+          <add name="DistributedCache"
+                type="Microsoft.Web.DistributedCache.DistributedCacheOutputCacheProvider, Microsoft.Web.DistributedCache"
+                cacheName="default"
+                dataCacheClientName="default" />
+        </providers>
+      </outputCache>--><!--
+    </caching>-->
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <!--<add assembly="System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />-->
+        <add assembly="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <!--<add assembly="System.Web.Routing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />-->
+        <add assembly="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      </assemblies>
+    </compilation>   
+    <!--TODO: Write custom validator which would make this unneccassary-->
+    <httpRuntime requestValidationMode="2.0" maxRequestLength="60000" executionTimeout="600" />
+    <authentication mode="None">
+      
+      <forms loginUrl="~/Account/LogIn" timeout="2880"  />
+    </authentication>
+    
+    <!--OutputCache Start-->
+    <!--OutputCache End-->
+    <pages controlRenderingCompatibilityVersion="4.0">
+      <namespaces>
+        <add namespace="System.Web.Helpers"/>
+        <add namespace="System.Web.Mvc"/>
+        <add namespace="System.Web.Mvc.Ajax"/>
+        <add namespace="System.Web.Mvc.Html"/>
+        <add namespace="System.Web.Routing"/>
+        <add namespace="System.Web.WebPages"/>
+      </namespaces>
+    </pages>
+  </system.web>
+  <system.web>
+    <httpModules>
+     
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" />
+    </httpModules>
+    <customErrors mode="RemoteOnly" defaultRedirect="~/error"></customErrors>
+  </system.web>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules runAllManagedModulesForAllRequests="true">
+      <!--ACS Start-->
+      <remove name="WSFederationAuthenticationModule" />
+      <remove name="SessionAuthenticationModule" />
+      <add name="WSFederationAuthenticationModule" type="Microsoft.IdentityModel.Web.WSFederationAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" preCondition="managedHandler" />
+      <add name="SessionAuthenticationModule" type="Microsoft.IdentityModel.Web.SessionAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" preCondition="managedHandler" />
+      <add name="AzureAuthenticationModule" type="AzureHelper.Authentication.AzureAuthenticationModule" />
+      <!--ACS End-->
+      <!-- <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" preCondition="managedHandler" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" preCondition="managedHandler" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" preCondition="managedHandler" /> -->
+    </modules>
+  </system.webServer>
+  
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>  
+  <applicationSettings>
+    <BricsWeb.Properties.Settings>
+      <setting name="SubscriptionPrice" serializeAs="String">
+        <value>1500</value>
+      </setting>
+      <setting name="Hash" serializeAs="String">
+        <value>C3949A8356964E6AB66577F54BE732F1</value>
+      </setting>
+      <setting name="TerminalID" serializeAs="String">
+        <value>1639</value>
+      </setting>
+      <setting name="SmtpHostName" serializeAs="String">
+        <value>smtp.gmail.com</value>
+      </setting>
+      <setting name="SmtpUserName" serializeAs="String">
+        <value>noreply@bricsafricab2b.com</value>
+      </setting>
+      <setting name="SmtpPassword" serializeAs="String">
+        <value>brics@brics@</value>
+      </setting>
+      <setting name="SmtpFromAddress" serializeAs="String">
+        <value>noreply@bricsafricab2b.com</value>
+      </setting>
+      <setting name="Tier1" serializeAs="String">
+        <value>30</value>
+      </setting>
+      <setting name="Tier2" serializeAs="String">
+        <value>15</value>
+      </setting>
+      <setting name="Tier3" serializeAs="String">
+        <value>7.5</value>
+      </setting>
+      <setting name="Tier4" serializeAs="String">
+        <value>3.75</value>
+      </setting>
+      <setting name="LocalCon" serializeAs="String">
+        <value>DefaultEndpointsProtocol=https;AccountName=matchmaker;AccountKey=FxBIcZhwb4cRX8JL3EtaE3JPjFjqpqNcSDgDweCCQI0vehIJafEdCDno7vdcUbI02d1VRB5/psxRPS6iF+ZyeA==</value>
+      </setting>
+      <setting name="AzureUserTable" serializeAs="String">
+        <value>AzureUserTest</value>
+      </setting>
+      <setting name="AzureRoleTable" serializeAs="String">
+        <value>AzureRoleTest</value>
+      </setting>
+      <setting name="DefaultCategoryRowkey" serializeAs="String">
+        <value>886a360b-9a21-4bb7-bba9-98cb5c4af9f0</value>
+      </setting>
+      <setting name="IsDiagnosticsModeEnabled" serializeAs="String">
+        <value>false</value>
+      </setting>
+      <setting name="ConnectionString" serializeAs="String">
+        <value>DefaultEndpointsProtocol=https;AccountName=matchmaker;AccountKey=FxBIcZhwb4cRX8JL3EtaE3JPjFjqpqNcSDgDweCCQI0vehIJafEdCDno7vdcUbI02d1VRB5/psxRPS6iF+ZyeA==</value>
+      </setting>
+      <setting name="CategoryTable" serializeAs="String">
+        <value>Category</value>
+      </setting>
+      <setting name="CompanyTable" serializeAs="String">
+        <value>Company</value>
+      </setting>
+      <setting name="CompanySubscriptionTable" serializeAs="String">
+        <value>CompanySubscription</value>
+      </setting>
+      <setting name="ProductTable" serializeAs="String">
+        <value>Product</value>
+      </setting>
+      <setting name="TransactionTable" serializeAs="String">
+        <value>Transaction</value>
+      </setting>
+      <setting name="BaseUrl" serializeAs="String">
+        <!-- <value>http://connect.bricsafricab2b.com/</value>-->
+        <value>http://localhost:5000/</value>
+        <!--<value>http://bizgen.cloudapp.net/</value>-->
+      </setting>
+      <setting name="HrdFeed" serializeAs="String">
+        <value>https://matchmaker.accesscontrol.windows.net:443/v2/metadata/IdentityProviders.js?protocol=wsfederation&amp;realm=http%3a%2f%2fmatchmakerapplication.cloudapp.net%2f&amp;reply_to=http%3a%2f%2fconnect.bricsafricab2b.com%2f&amp;context=&amp;request_id=&amp;version=1.0&amp;callback=?</value>
+      </setting>
+      <setting name="BuyerRequestTable" serializeAs="String">
+        <value>BuyerRequest</value>
+      </setting>
+      <setting name="ProductHomeProductCount" serializeAs="String">
+        <value>10</value>
+      </setting>
+      <setting name="PlatinumBannerProductCount" serializeAs="String">
+        <value>4</value>
+      </setting>
+      <setting name="SilverGoldBannerProductCount" serializeAs="String">
+        <value>5</value>
+      </setting>
+      <setting name="FlagUrlPath" serializeAs="String">
+        <value>http://matchmaker.blob.core.windows.net/flags/%COUNTRYCODE%.png</value>
+      </setting>
+      <setting name="NoImage120Url" serializeAs="String">
+        <value>http://matchmaker.blob.core.windows.net/image/NoImage120.jpg</value>
+      </setting>
+      <setting name="NoImage160Url" serializeAs="String">
+        <value>http://matchmaker.blob.core.windows.net/image/NoImage160.jpg</value>
+      </setting>
+      <setting name="NoImage240Url" serializeAs="String">
+        <value>http://matchmaker.blob.core.windows.net/image/NoImage240.jpg</value>
+      </setting>
+      <setting name="GoldProductWeight" serializeAs="String">
+        <value>1</value>
+      </setting>
+    </BricsWeb.Properties.Settings>
+  </applicationSettings>
+  <elmah>
+    <!--See http://code.google.com/p/elmah/wiki/SecuringErrorLogPages for
+    more information on remote access and securing ELMAH.-->
+    <security allowRemoteAccess="yes" />
+    <errorLog type="BricsWeb.TableErrorLog, BricsWeb" connectionString="DefaultEndpointsProtocol=https;AccountName=matchmaker;AccountKey=FxBIcZhwb4cRX8JL3EtaE3JPjFjqpqNcSDgDweCCQI0vehIJafEdCDno7vdcUbI02d1VRB5/psxRPS6iF+ZyeA==" />
+    <!--<errorLog type="BricsWeb.TableErrorLog, BricsWeb" connectionString="DefaultEndpointsProtocol=https;AccountName=matchmaker;AccountKey=FxBIcZhwb4cRX8JL3EtaE3JPjFjqpqNcSDgDweCCQI0vehIJafEdCDno7vdcUbI02d1VRB5/psxRPS6iF+ZyeA==" />-->
+  </elmah>
+  <location path="elmah.axd">
+    <system.web>
+      <httpHandlers>
+        <add verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" />
+      </httpHandlers>
+        <!--See http://code.google.com/p/elmah/wiki/SecuringErrorLogPages for 
+        more information on using ASP.NET authorization securing ELMAH.-->
+      <authorization>
+        <allow roles="admin" />
+        <deny users="*" />  
+      </authorization>    
+      </system.web>
+    <system.webServer>
+      <handlers>
+        <add name="ELMAH" verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" preCondition="integratedMode" />
+      </handlers>
+    </system.webServer>
+  </location>
+</configuration>

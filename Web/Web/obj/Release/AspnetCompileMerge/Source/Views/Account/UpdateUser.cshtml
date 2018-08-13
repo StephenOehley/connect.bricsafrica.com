@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Personal Profile";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+    var AzureUser = AzureHelper.Authentication.AzureMembershipProvider.GetAzureUser(User.Identity.Name,true);
+}
+
+
+<div class="form-profile">
+<img src="../../Content/Images/BusinessGenerator/step_personal.png" />
+ <br />
+ <br />
+<form action="/Account/UpdateUser" id="saveform" method="post">    
+	<h1 class="text-bg-formcontent">Personal Profile</h1>
+    <div class="text-allcontent">
+        <br />
+        <label for="Name">Username</label><br />
+        <input id="Name" name="Username" style="width: 200px" type="text" value="@AzureUser.Username" disabled/>
+        <br />
+        @if (AzureUser.NameIdentifier == string.Empty)
+        {
+          @Html.ActionLink("Change Password", "ChangePassword", "Account")
+        }
+        <br />
+        <br />
+        <label for="Name">Name</label><br />
+        <input accesskey="n" class="required" data-val="true" data-val-required="The Name field is required." id="RealName" name="RealName" style="width: 200px" type="text" value="@AzureUser.RealName" />
+        <br />
+        <label for="Email">Email</label><br />
+        <input accesskey="n" class="required" data-val="true" data-val-required="The Email field is required." id="Email" name="Email" style="width: 200px" type="text" value="@AzureUser.Email" />
+        <br />
+        <br />
+        <input name="returnurl" value="/Account/UpdateUser" type="hidden"/> 
+        @*<input name="__RequestVerificationToken" type="hidden" value="tVw06ygOMzaKbNQie8ZxmHzbJ2Ju+n18H8OJltSlqFPWf01r6GAvqpuXgTsokvr3PuGErta+izgJgdXYpA2kxm/7JH5lX39rLeR0GjFBqOU81jDQxo3irxtTIuKMQ4SrrDb/FDG4W1hfMFIxoljotNB0/+M=" />*@
+        <input type="submit" id="bSave" name="bSave" value="Save" accesskey="s" class="form-button" />
+        <br/>
+        <div id="saveform-message">
+        </div>
+        <noscript>
+            <br />
+            <br />
+            <div class="tip">
+                Please enable javascript to use this page.
+            </div>
+        </noscript>
+         <br/> <br/>
+    </div>
+</form>
+
+</div>

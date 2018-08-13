@@ -1,0 +1,9 @@
+﻿@model BricsWeb.Models.CategoryModel[]
+<select data-val="true" data-val-required="The Country field is required." id="Category"
+    name="Category" class="categoryselect text-allcontent">
+    <option value="0" selected="selected">All Categories</option>
+    @foreach (BricsWeb.Models.CategoryModel cat in Model)
+    {
+        <option value="@cat.RowKey">@cat.Name</option>
+    }
+</select>

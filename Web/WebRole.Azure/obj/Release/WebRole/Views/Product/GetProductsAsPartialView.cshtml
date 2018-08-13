@@ -1,0 +1,7 @@
+﻿@model BricsWeb.Models.ProductModel[]
+           
+@foreach (BricsWeb.Models.ProductModel p in Model)
+{
+  <a href="#@p.RowKey" class="editlink">@p.ProductName</a>
+  <br />
+}

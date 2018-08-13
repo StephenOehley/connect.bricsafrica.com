@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureDeployment" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-05.1.7">
+  <WebRole name="WebRole" vmsize="ExtraSmall">
+    <!--<Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+    </Sites>-->
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="Diagnostics" />
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+    </Imports>
+    <Startup>
+      <Task commandLine="startup\Startup.cmd" executionContext="elevated" />
+    </Startup>
+    <Certificates>
+      <Certificate name="SSL" storeLocation="LocalMachine" storeName="My" />
+    </Certificates>
+    <ConfigurationSettings>
+      <Setting name="BuyerRequestTable" />
+      <Setting name="CategoryTable" />
+      <Setting name="CompanyTable" />
+      <Setting name="CompanySubscriptionTable" />
+      <Setting name="ProductTable" />
+      <Setting name="TransactionTable" />
+      <Setting name="StorageAccountKey" />
+      <Setting name="StorageAccountName" />
+      <Setting name="Tier1" />
+      <Setting name="Tier2" />
+      <Setting name="Tier3" />
+      <Setting name="Tier4" />
+      <Setting name="SubscriptionAmount" />
+      <Setting name="BaseUrl" />
+      <Setting name="HrdFeed" />
+      <Setting name="AzureUserTable" />
+      <Setting name="AzureRoleTable" />
+      <Setting name="IsDiagnosticModeEnabled" />
+    </ConfigurationSettings>
+  </WebRole>
+</ServiceDefinition>

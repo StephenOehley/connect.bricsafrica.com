@@ -1,0 +1,56 @@
+﻿@model BricsWeb.LocalModels.CategoryViewModel
+           
+<div class="result-menu clearfix">
+    <div class="category-header">
+        <div class="text-searchheaders">
+         <img id="CategoryLoadingImage" src="../../Content/Images/Shared/throbber.gif" class="hiddenimage"/>
+         <a href="#@Model.Parent.RowKey" class="categoryselectlink text-black">@Model.Parent.Name</a> 
+        </div>        
+    </div>
+    <div class="clearfix" id="category-list">
+
+        <ul>
+            @foreach (BricsWeb.LocalModels.CategoryViewModel parentCategory in Model.CategoryCollection)
+            {
+                  var parentIdString = @"ParentMenuItemID" + parentCategory.Parent.RowKey;
+                  <li class="category-list-item">                     
+                    <a  id="@parentIdString" href="#@parentCategory.Parent.RowKey" class="categoryselectlink parentcategorymenuitem">
+                        <p class="category-list-header">@parentCategory.Parent.Name</p>
+                    </a>
+                </li>             
+            }
+        </ul>
+
+        <div id="category-sub-list">
+            @{int itemPosition = 38;}
+            @foreach (BricsWeb.LocalModels.CategoryViewModel parentCategory in Model.CategoryCollection)
+            {
+                var itemPositionString = itemPosition.ToString() + "px";
+                var childMenuIdString = @"ChildMenuId" + parentCategory.Parent.RowKey;
+                <div id="@childMenuIdString" style="left: 1198px; top: @itemPositionString" class="hiddenmenu childmenu">
+                    @if (parentCategory.CategoryCollection != null)
+                    {
+                        foreach (BricsWeb.LocalModels.CategoryViewModel categoryNode in parentCategory.CategoryCollection)
+                        {
+                            if (ViewBag.ShowproductCount)
+                            {
+                             <a href="#@categoryNode.Parent.RowKey" class="categoryselectlink productcount">@categoryNode.Parent.Name (@categoryNode.ProductCount)</a>
+                            }
+                            else
+                            {
+                                <a href="#@categoryNode.Parent.RowKey" class="categoryselectlink companycount">@categoryNode.Parent.Name (@categoryNode.CompanyCount)</a>
+                            }
+                        }
+                    }
+                </div>              
+                itemPosition = itemPosition + 26;
+            }
+        </div>     
+
+    </div>   
+</div>
+ <div id="categoryadvertbanner" class="sponsor-ad-c1 sponsor-silver-200x275">
+            <div class="sponsor-ad-c1-title"><a id="category-sponsor-title" href="http://www.teraco.co.za">Teraco</a></div>
+ </div>      
+
+

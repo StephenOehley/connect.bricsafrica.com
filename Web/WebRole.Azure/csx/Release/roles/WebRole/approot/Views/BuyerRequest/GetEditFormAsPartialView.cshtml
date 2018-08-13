@@ -1,0 +1,95 @@
+﻿@model BricsWeb.LocalModels.BuyerRequestViewModel
+<h1 class="text-bg-formcontent">
+    Request Detail</h1>
+<br />
+@using (Html.BeginForm("Edit", "BuyerRequest", FormMethod.Post, new { id = "requestform" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestData.RequestTitle)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.RequestData.RequestTitle, new { style = "width: 500px" })
+            @Html.ValidationMessageFor(model => model.RequestData.RequestTitle)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestData.RequestDescription)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.RequestData.RequestDescription, new { style = "width: 500px; height: 227px" })
+            @Html.ValidationMessageFor(model => model.RequestData.RequestDescription)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestData.Category)
+        </div>
+        <div class="editor-field">
+            <select data-val="true" data-val-required="The Category type field is required." id="RequestDataCategory" name="RequestData.Category" class="input-padding">
+                <option>Animals</option>
+                <option>Arts And Entertainment</option>
+                <option>Baby & Toddler</option>
+                <option>Business & Industrial</option>
+                <option>Camera & Optics</option>
+                <option>Clothing & Accessories</option>
+                <option>Electronics</option>
+                <option>Food, Beverages & Tobacco</option>
+                <option>Furniture</option>
+                <option>Hardware</option>
+                <option>Health & Beauty</option>
+                <option>Home & Garden</option>
+                <option>Luggage</option>
+                <option>Mature</option>
+                <option>Media</option>
+                <option>Motor Vehicles</option>
+                <option>Office Supplies</option>
+                <option>Software</option>
+                <option>Sporting Goods</option>
+                <option>Toys And Games</option>
+            </select>
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestData.Quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequestData.Quantity)
+            @Html.ValidationMessageFor(model => model.RequestData.Quantity)
+        </div>
+        <br />
+        @Html.Label("Product Photo")
+        <br />
+        <img id="requestphoto" src=@Model.RequestData.PhotoUrl alt="notavailable"/>
+        <br />
+        <br />
+        <input type="file" name="photo" class="file" style="display: inline; width: 172px;" />
+        <br />
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestData.DateExpire)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequestData.DateExpire)
+            @Html.ValidationMessageFor(model => model.RequestData.DateExpire)
+        </div>
+        @Html.HiddenFor(model => model.RequestData.RowKey,new { id = "RowKey" })
+        @Html.HiddenFor(model => model.RequestData.PartitionKey)
+        @Html.HiddenFor(model => model.RequestData.CompanyID)
+        @Html.HiddenFor(model => model.RequestData.PhotoUrl)
+        <br />
+        <input type="submit" id="bSave" name="bSave" value="Save" accesskey="s" class="form-button"/>
+        <div id="requestform-message">
+        </div>
+        <noscript>
+            <br />
+            <br />
+            <div class="tip">
+                Please enable javascript to use this page.
+            </div>
+        </noscript>
+        <br />
+        <br />
+    </fieldset>
+    
+    <div id="hidden">
+     @Html.HiddenFor(model => model.RequestData.Category, new { id = "Category" })
+    </div>
+}

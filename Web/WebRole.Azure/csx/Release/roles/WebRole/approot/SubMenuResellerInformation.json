@@ -1,0 +1,13 @@
+﻿{
+  "Items" : [
+    {
+      "DisplayName" : "Sales Report",
+      "Url" : "/reseller-sales",
+      "IsActive" : false,
+      "AllowedRoles" : [
+        "RegisteredReseller"
+      ]
+    }
+  ],
+  "MenuName" : "SubMenuResellerInformation"
+}

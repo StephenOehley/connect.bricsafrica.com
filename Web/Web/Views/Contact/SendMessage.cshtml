@@ -1,0 +1,175 @@
+﻿@model BricsWeb.LocalModels.ContactModel
+@{
+    ViewBag.Title = "SendMessage";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<div class="form-profile">
+<div class="clearfix marginright">
+    <div class="searchresult-header">
+        <div class="search-title text-searchheaders leftmargin left">
+            @ViewBag.FormTitle
+        </div>
+    </div>
+    <div class="resultproduct">
+        <div class="product clearfix">
+            <form action="/Contact/SubmitContactRequestBusinessGenerator" id="contactform" method="post">
+            <fieldset class="bodycontent">
+                <table>
+                    <tbody>
+                        <tr class="tr-contact-margin">
+                            <td class="td-contact-label">
+                                <label for="Name" class="text-allcontent">
+                                    From:&nbsp;&nbsp;&nbsp;</label>
+                            </td>
+                            <td>
+                                <input accesskey="n" class="required text-formcontent" value="@Model.FromEmail" data-val="true" data-val-required="The From field is required." id="FromEmail" name="FromEmail" style="width: 350px" type="text" value=""> 
+                            </td>
+                            <td class="text-allcontent">
+                                &nbsp;&nbsp;&nbsp; Enter Email
+                            </td>
+                        </tr>
+                        <tr class="tr-contact-margin">
+                            <td class="td-contact-label">
+                                <label for="Company" class="text-allcontent">
+                                    To:&nbsp;&nbsp;&nbsp;</label><br>
+                            </td>
+                            <td>
+                                <p class="text-formcontent">
+                                    @Model.ToCompanyAndContactName
+                                 </p>
+                            </td>
+                        </tr>
+                        <tr class="tr-contact-margin">
+                            <td class="td-contact-label">
+                                <label for="Name" class="text-allcontent">
+                                    Subject:&nbsp;&nbsp;&nbsp;</label>
+                            </td>
+                            <td>
+                                <input accesskey="n" class="required text-formcontent" data-val="true" data-val-required="The Subject field is required."
+                                    id="Subject" name="Subject" style="width: 350px" type="text" value="@ViewBag.Subject">
+                            </td>
+                            <td class="text-allcontent">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr class="tr-contact-margin">
+                            <td class="td-contact-label">
+                                <label for="Name" class="text-allcontent">
+                                    Quantity:&nbsp;&nbsp;&nbsp;</label>
+                            </td>
+                            <td>
+                                <input accesskey="n" class="required text-formcontent" data-val="true" data-val-required="The Quantity field is required."
+                                    id="Quantity" name="Quantity" style="width: 350px" type="text" value="">
+                            </td>
+                            <td class="text-allcontent">
+                                &nbsp;&nbsp;&nbsp; e.g. 10000/units
+                            </td>
+                        </tr>
+                        <tr class="tr-contact-margin">
+                            <td class="td-contact-label">
+                                <label for="Comments" class="text-allcontent">
+                                    Message:&nbsp;&nbsp;&nbsp;</label>
+                            </td>
+                            <td>
+                                <textarea accesskey="c" id="Message" rows="15" name="Message" style="width: 350px"
+                                    class="text-formcontent">		
+                                 </textarea>
+                            </td>
+                        </tr>
+                        <input name="__RequestVerificationToken" type="hidden" value="hcHyAWSuPBX484dcC/elXS22PkyPtZ8sEwubIaDQSz9D5x9Wi8tIKBLm0FVUZ4CT9PVaW3xGt9wByXgjMhzQwg9hzvDTNsJWnGyn4niP0lykgVcXkmzlNm6stpwctE2lgvWjiTxE9BF/be5+WkyuxokfdcA=">
+                        <tr class="tr-contact-margin">
+                            <td class="td-contact-label">
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr class="tr-contact-margin">
+                            <td class="td-contact-label">
+                            </td>
+                            <td>
+                            @Html.HiddenFor(m => m.ToCompanyID)
+                                <input type="submit" id="bContact" name="bContact" value="SEND MESSAGE" accesskey="s"
+                                    class="text-allcontent button-contact">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="contactsuccess" class="success-message">
+                </div>
+                <div class="validation-summary-valid" data-valmsg-summary="true" id="contacterror">
+                    <ul>
+                        <li style="display: none"></li>
+                    </ul>
+                </div>
+                <noscript>
+                    &lt;br /&gt; &lt;br /&gt; &lt;div class="tip"&gt; Our contact form may not work
+                    reliably because you have JavaScript disabled. For a better experience, please enable
+                    JavaScript.&lt;/div&gt;
+                </noscript>
+            </fieldset>
+            <br>
+            <br>
+            </form>
+
+        </div>
+    </div>
+  @*  <div class="productdetail-footer">
+    </div>*@
+</div>
+</div>
+
+<script type="text/javascript" src="http://www.malsup.com/jquery/form/jquery.form.js"></script>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        var formoptions = { beforeSubmit: function (formData, jqForm, options) {
+            $("#bContact").attr('value', 'sending...');
+            $("#bContact").attr('disabled', 'disabled');
+        }, success: function (data) {
+            if (data.status == "Success") {
+                $("#contacterror").hide();
+                showMessage("#contactsuccess", data.message);
+                $('.valid').removeClass('valid');
+                validator.resetForm();
+            }
+            else {
+                $("#contactsuccess").hide();
+                showMessage("#contacterror", data.message);
+            }
+            $("#bContact").attr('value', 'Send Message');
+            $("#bContact").removeAttr('disabled');
+        }, dataType: "json"
+        };
+        jQuery.validator.messages.required = "";
+
+        var validator = $("#contactform").validate({
+            submitHandler: function (form) {
+                $(form).ajaxSubmit(formoptions);
+            },
+            invalidHandler: function (e, validator) {
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    var message = errors == 1 ? 'You missed 1 field. It has been highlighted.' : 'You missed ' + errors + ' fields.  They have been highlighted.';
+                    showMessage("#contacterror", message);
+                    $("#contactsuccess").hide();
+                } else {
+                    $("#contacterror").hide();
+                }
+            },
+            messages: { Email: { email: ""} },
+            rules: {
+                Subject: "required",
+                Message: "required",
+                Email: { required: true, email: true }
+            },
+            errorClass: "invalid",
+            validClass: "valid",
+            errorContainer: "#contacterror"
+        });
+
+        function showMessage(id, message) {
+            $(id).html(message);
+            $(id).show();
+        }
+    });
+</script>

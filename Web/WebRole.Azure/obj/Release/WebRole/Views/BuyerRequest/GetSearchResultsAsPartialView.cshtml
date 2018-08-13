@@ -1,0 +1,32 @@
+﻿@model BricsWeb.Models.BuyerRequestModel[]
+@foreach (BricsWeb.Models.BuyerRequestModel request in Model)
+{
+    <div class="product clearfix">
+        <div class="product-border clearfix">
+            <div class="buyer-text">
+                <p class="product-title">
+                    @request.RequestTitle
+                </p>
+                <p class="product-fieldspan">
+                    @request.RequestDescription
+                </p>
+                <p class="product-fieldbold">
+                    Quantity Required:<span class="product-fieldspan"> @request.Quantity</span>
+                </p>
+                <p class="product-fieldbold">
+                    Date Posted:<span class="product-fieldspan"> @request.DatePosted.ToShortDateString()</span>
+                </p>
+                <p class="product-fieldbold">
+                    Expiration Time:<span class="product-fieldspan"> @request.DateExpire.ToShortDateString()</span>
+                </p>
+            </div>
+            <div class="product-contact left">
+                <div class="buyer-image">
+                    <img alt="Camera" height="120" src="@request.PhotoUrl" width="120" class="imagecenternew"></div>
+                <div class="contactsupplier clearfix">
+                    <a id="contactbuyer" href="/contact/sendmessage?id=@request.CompanyID&formTitle=Buyer&subject=@Url.Encode(request.RequestTitle)" class="left"></a>
+                </div>
+            </div>
+        </div>       
+    </div>
+}

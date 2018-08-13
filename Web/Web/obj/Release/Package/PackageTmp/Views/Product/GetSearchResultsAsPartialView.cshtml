@@ -1,0 +1,144 @@
+﻿@model BricsWeb.LocalModels.ProductSearchResultViewModel
+@{
+    string class25 = string.Empty;
+    string class50 = string.Empty;
+    string class75 = string.Empty;
+
+    if (Model.ProductsPerPage == 25)
+    {
+        class25 = " selected25";
+    }
+    else if (Model.ProductsPerPage == 50)
+    {
+        class50 = " selected50";
+    }
+    else if (Model.ProductsPerPage == 75)
+    {
+        class75 = " selected75";
+    }
+}
+
+<div class="result-searchproduct">
+    <div class="searchresult-header">
+        <div class="search-title text-searchheaders leftmargin left">
+            <img id="SearchLoadingImage" src="../../Content/Images/Shared/throbber.gif" class="hiddenimage" />
+            @Model.Category.Name
+        </div>
+        <div id="pagenav">
+            <div class="text-search-nav rightmargin left">
+                PAGE: @Model.CurrentPage/@Model.TotalPages
+            </div>
+            <a id="PageBack" class="pageback"></a><a id="PageForward" class="pageforward"></a>
+        </div>
+        <div class="show-num-items left">
+            <span class="left text-search-nav rightmargin">SHOW:</span> <a id="Show25" class="show25 @class25"></a>
+            <a id="Show50" class="show50  @class50"></a><a id="Show75" class="show75 @class75"></a>
+        </div>
+    </div>
+    <div id="productresultscontainer" class="resultproduct">
+        @foreach (BricsWeb.LocalModels.ProductSearchResultModel product in Model.Results)
+        {
+            <div class="product clearfix">
+                <div class="product-border clearfix">
+                    <div class="product-image">
+                        <img alt="@product.Product.ProductName" height="120" src="@product.Product.PhotoUrl" width="120"/>
+                    </div>
+                    <div class="product-text-searchpage">
+                        <p class="product-title">
+                            <a href="/product/details?id=@product.Product.RowKey" target="_blank">@product.Product.ProductName</a>
+                        </p>
+                        <p class="product-fieldbold">
+                            Min.Order: <span class="product-fieldspan">@product.Product.MinimumOrderQuantity</span>
+                        </p>
+                        <p class="product-fieldbold">
+                            FOB Price: <span class="product-fieldspan">USD @product.Product.FobPrice</span>
+                        </p>
+                        <p class="product-fieldspan">
+                            @product.Product.Description
+                        </p>
+                    </div>
+                    <div class="product-contact">
+                        <div class="country-badge" title="@product.Country" style="background-image: url('@product.FlagUrl')"></div>
+                        @if (product.IsGreenCertified)
+                        {
+                            <div class="product-badge">
+                                <img alt="Green Badge" title="Green Supplier" src="../../Content/Images/BusinessGenerator/BadgeGreen.png"/>
+                            </div>
+                            }
+                        @if (product.IsChamberCertified)
+                        {
+                            <div class="product-badge">
+                                <img alt="Chamber Badge" title="Chamber Member" src="../../Content/Images/BusinessGenerator/BadgeChamber.png"/>
+                            </div>
+                            }
+                        @if (product.IsVerified)
+                        {
+                            <div class="product-badge">
+                                <img alt="Verified Badge" title="Information Verified" src="../../Content/Images/BusinessGenerator/BadgeVerified.png"/>
+                            </div>
+                            }
+                        @if (product.CompanySubscriptionLevel == 0)
+                        {
+                            <div class="product-badge">
+                                <img alt="Bronze Badge" title="Bronze Supplier" src="../../Content/Images/BusinessGenerator/BadgeBronze.png"/>
+                            </div>
+                            }
+                        @if (product.CompanySubscriptionLevel == 1)
+                        {
+                            <div class="product-badge">
+                                <img alt="Silver Badge" title="Silver Supplier" src="../../Content/Images/BusinessGenerator/BadgeSilver.png"/>
+                            </div>
+                            }
+                        @if (product.CompanySubscriptionLevel == 2)
+                        {
+                            <div class="product-badge">
+                                <img alt="Gold Badge" title="Gold Supplier" src="../../Content/Images/BusinessGenerator/BadgeGold.png"/>
+                            </div>
+                        }
+                        @if (product.CompanySubscriptionLevel == 3)
+                        {
+                            <div class="product-badge">
+                                <img alt="Platinum Badge" title="Platinum Supplier" src="../../Content/Images/BusinessGenerator/BadgePlatinum.png"/>
+                            </div>
+                        }
+
+                        <div class="product-contactdetail">
+                            <p class="product-fieldname">
+                                <a target="_blank" href="/company/details?id=@product.CompanyID">@product.CompanyName</a>
+                            </p>
+                            <p class="product-fieldtype">
+                                @product.BusinessType
+                            </p>
+                        </div>
+                        <div class="contactsupplier">
+                            <a id="contactsupplier" href="/contact/sendmessage?id=@product.CompanyID&formTitle=Supplier&subject=@Url.Encode(product.Product.ProductName)" class="left"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+   <div class="searchresult-footer">
+        <div id="pagenavfooter">
+            <div class="footer-search-results left">
+                @Model.TotalResults Results Found
+            </div>
+            <div class="footer-nav-page-num rightmargin left">
+                PAGE: @Model.CurrentPage/@Model.TotalPages
+            </div>
+            <a class="pageback"></a><a class="pageforward"></a>
+        </div>
+    </div>
+    <div id="PlatinumBannerContainer">      
+    </div>
+</div>
+
+<div>
+    @Model.SearchDiagnosticInformation
+</div>
+
+<script language="javascript" type="text/javascript">
+    currentPage = @Model.CurrentPage;
+    itemsPerPage = @Model.ProductsPerPage;
+    maxPage = @Model.TotalPages;
+</script>

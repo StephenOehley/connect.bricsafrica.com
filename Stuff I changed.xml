@@ -1,0 +1,49 @@
+<!--ACS Start-->
+  <microsoft.identityModel>
+    <service>
+      <claimsAuthenticationManager type="AzureHelper.Authentication.AzureClaimsManager" />
+      <audienceUris>
+        <!--<add value="http://matchmakerapplication.cloudapp.net/" />-->
+        <add value="http://localhost:5000/"/> 
+        <!--<add value="http://localhost/" />-->
+      </audienceUris>
+      <federatedAuthentication>
+        <wsFederation passiveRedirectEnabled="true" issuer="https://matchmaker.accesscontrol.windows.net/v2/wsfederation" realm="http://matchmakerapplication.cloudapp.net/" requireHttps="false" />
+        <!--<wsFederation passiveRedirectEnabled="true" issuer="https://matchmaker.accesscontrol.windows.net/v2/wsfederation" realm="http://localhost:5000/" requireHttps="false" />-->
+        <!--<wsFederation passiveRedirectEnabled="true" issuer="https://matchmaker.accesscontrol.windows.net/v2/wsfederation" realm="http://localhost/" requireHttps="false" />-->
+        <cookieHandler requireSsl="false" />
+      </federatedAuthentication>
+      <!--ACS Start-->
+      <serviceCertificate>
+        <certificateReference x509FindType="FindByThumbprint" findValue="CFF08780F8385FABF6D060CEF79049F288A14176" />
+      </serviceCertificate>
+      <!--ACS End-->
+      <applicationService>
+        <claimTypeRequired>
+          <!--Following are the claims offered by STS https://matchmaker.accesscontrol.windows.net/ -->
+          <claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" optional="true" />
+          <claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" optional="true" />
+          <claimType type="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" optional="true" />
+          <claimType type="http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider" optional="true" />
+        </claimTypeRequired>
+      </applicationService>
+      <issuerNameRegistry type="Microsoft.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+        <trustedIssuers>
+          <add thumbprint="39D454E7B9472FF67028C151CA627CFFF0302D04" name="https://matchmaker.accesscontrol.windows.net/" />
+        </trustedIssuers>
+      </issuerNameRegistry>
+      <certificateValidation certificateValidationMode="None" />
+    </service>
+  </microsoft.identityModel>
+  <!--ACS End-->
+  
+  
+  ,
+
+                new RsaEncryptionCookieTransform(
+
+                    e.ServiceConfiguration.ServiceCertificate),
+
+                new RsaSignatureCookieTransform(
+
+                    e.ServiceConfiguration.ServiceCertificate)

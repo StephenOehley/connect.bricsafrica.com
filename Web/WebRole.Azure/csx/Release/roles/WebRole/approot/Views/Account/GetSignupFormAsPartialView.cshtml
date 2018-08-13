@@ -1,0 +1,143 @@
+﻿@using System.Web.Mvc.Html;
+
+<div class="form-profile">
+   <div class="Signup-Box" style="background-image: url('../../Content/Images/BusinessGenerator/SignUpDivide.jpg')">
+   @* <div class="Signup-Box">*@
+
+        <div class="signup-form text-allcontent">
+
+            <form action="/Account/AddUser" id="signupform" method="post" class="form-padding">
+            <h1 class="text-blue-medium">SIGN UP</h1>
+            @*<label for="Username">Username</label>
+            <br />
+            <input accesskey="n" class="required" id="username" name="username" style="width: 200px" type="text" value="" autocomplete="off" />*@
+          @*  <div id="UsernameResult"></div>*@
+            <br />
+            <label for="Name">Email</label>
+            <br />
+            <input accesskey="n" class="required" id="email" name="email" style="width: 200px" type="text" value="" autocomplete="off" /><br />
+            <br />
+            <label for="Password">Password</label><br />
+            <input accesskey="n" class="required" id="password" name="password" style="width: 200px" type="password" value="" autocomplete="off" />
+            <br />
+            <br />
+            <input accesskey="n" class="required" id="returnUrl" name="returnUrl" type="hidden" value="/Account/UpdateUser" />
+            <input type="submit" id="bSignup" name="bSignup" value="Sign Up" accesskey="s" class="form-button" />
+            <br />
+            <br />
+            </form>
+
+        </div>
+
+       <div class="signup-form-other text-allcontent">
+       <h1 class="text-blue-medium">ALLREADY REGISTERED ?</h1>
+           <br />
+        <a href="/Account/login"><h1>Proceed To Login >></h1></a> 
+       </div>
+       @* <div class="signup-form-other text-allcontent">
+            <h1 class="text-blue-medium">OR USE YOUR EXISTING ACCOUNT</h1>
+            <br />
+            <div id="idpcontainer">
+            </div>
+            <br />
+            <label for="Email">Email</label>
+            <br />
+            <input accesskey="n" class="required" id="FederatedUserEmail" name="FederatedUser.Email" style="width: 200px" type="text" value="" />
+            <br />
+            <br />
+            <input type="submit" id="bFederatedLogin" name="bFederatedLogin" value="Proceed" accesskey="s" class="form-button" disabled />
+
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>*@
+    </div>
+</div>
+
+@*
+<div id="hidden" style="display : none">
+<a id="hrdfeed" href="https://matchmaker.accesscontrol.windows.net/v2/metadata/IdentityProviders.js?protocol=wsfederation&realm=http://localhost:5000/&reply_to=http://localhost:5000/account/addfederatedUser/emailplaceholder&context=returnurlplaceholder&version=1.0&callback=?"></a>
+<a id="signup" href="http://localhost:5000/account/addfederatedUser"></a>
+<a id="return" href="http://localhost:5000"></a>
+</div>*@
+
+<div id="hidden" style="display: none">
+    <a id="hrdfeed" href="@ViewBag.HrdFeed"></a>
+    <a id="return" href="@ViewBag.BaseUrl"></a>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        SetupFederatedLogin();
+
+        $("#signupform").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true                 
+                }
+            },
+            messages: {
+                email: {
+                    required: "We need your email address to contact you",
+                    email: "Your email address must be in the format of name@domain.com"
+                }
+            }
+        })
+
+        $('#FederatedUserEmail').keyup(function () {
+            var result = isValidEmailAddress($("input#FederatedUserEmail").val());
+
+            if (result) {
+                $("#bFederatedLogin").removeAttr("disabled");
+            }
+            else {
+                $("#bFederatedLogin").attr("disabled", "disabled");
+            }
+        });
+
+    });
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+        return pattern.test(emailAddress);
+    };
+
+    //Sets up federated login section
+    //Gets json data from acs and builds a list of radio buttons
+    //On federated login request navigates to correct url
+    function SetupFederatedLogin() {
+        var feedurl = "" + $('#hrdfeed').attr('href');
+        $.getJSON(feedurl, function (data) {
+            for (var i in data) {
+                CreateIdentityProviderRadioButton(data[i]);
+            }
+        });
+
+        $('#bFederatedLogin').bind('click', function () {
+
+            var selectedIDPUrlTemplate = $('input[name=idp]:checked').val();
+            var email = $("input#FederatedUserEmail").val();
+            var returnUrl = $('#return').attr('href');
+
+            var selectedIDPUrl = selectedIDPUrlTemplate.replace("emailplaceholder", encodeURIComponent(email)).replace("returnurlplaceholder", encodeURIComponent(returnUrl));
+
+            window.location.replace(selectedIDPUrl);
+        });
+    }
+
+    //Creates a radio button item for an identity provider's login page
+    var isFirst = true;
+    function CreateIdentityProviderRadioButton(identityProvider) {
+        var name = identityProvider.Name;
+        var loginUrl = identityProvider.LoginUrl
+        $('<input type="radio" name="idp" value="' + loginUrl + '"/>' + "&nbsp" + name + '<br/>').appendTo($("#idpcontainer"));
+
+        if (isFirst) {
+            isFirst = false;
+            $('input[name=idp]').attr('checked', true);
+        }
+    }
+</script>

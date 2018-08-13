@@ -1,0 +1,387 @@
+﻿@model BricsWeb.LocalModels.CompanyViewModel
+@{
+    ViewBag.Title = "Company Details";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+<div class="form-profile">
+    <div class="product-main-container">
+        <div class="product-search-container">
+            <div class="searchresult-header">
+                <div class="search-title text-searchheaders leftmargin left">
+                    Company Details
+                </div>
+            </div>
+            <div class="resultproduct">
+                <div class="product clearfix">
+                    <div class="right">
+                           <div id="company-image">
+                        <img src="@Model.CompanyData.LogoUrl" width="200">
+                               </div>
+                        <div class="contactsupplier">
+                            <a id="contactsupplier" href="/contact/sendmessage?id=@Model.CompanyData.RowKey" class="left"></a>
+                        </div>
+                        <div class="supplier-badges">
+                            <div>
+                               <div class="country-badge" title="@Model.CompanyData.Country" style="background-image: url('@Model.FlagUrl')"></div>
+                        @if (@Model.CompanyData.IsGreenCertified)
+                        {
+                            <div class="product-badge">
+                                <img alt="Green Badge" src="../../Content/Images/BusinessGenerator/BadgeGreen.png"/>
+                            </div>
+                            }
+                        @if (@Model.CompanyData.IsChamberCertified)
+                        {
+                            <div class="product-badge">
+                                <img alt="Chamber Badge" src="../../Content/Images/BusinessGenerator/BadgeChamber.png"/>
+                            </div>
+                            }
+                        @if (@Model.CompanyData.IsVerified)
+                        {
+                            <div class="product-badge">
+                                <img alt="Verified Badge" src="../../Content/Images/BusinessGenerator/BadgeVerified.png"/>
+                            </div>
+                            }
+                        @if (@Model.Level == 0)
+                        {
+                            <div class="product-badge">
+                                <img alt="Bronze Badge" src="../../Content/Images/BusinessGenerator/BadgeBronze.png"/>
+                            </div>
+                            }
+                        @if (@Model.Level == 1)
+                        {
+                            <div class="product-badge">
+                                <img alt="Silver Badge" src="../../Content/Images/BusinessGenerator/BadgeSilver.png"/>
+                            </div>
+                            }
+                        @if (@Model.Level == 2)
+                        {
+                            <div class="product-badge">
+                                <img alt="Gold Badge" src="../../Content/Images/BusinessGenerator/BadgeGold.png"/>
+                            </div>
+                        }
+                        @if (@Model.Level == 3)
+                        {
+                            <div class="product-badge">
+                                <img alt="Gold Badge" src="../../Content/Images/BusinessGenerator/BadgePlatinum.png"/>
+                            </div>
+                        }
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="product-title">
+                            @Model.CompanyData.Name
+                        </p>
+                        <p class="supplier-subheader">
+                            Contact Information
+                        </p>
+                        <table>
+                            <tbody>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Contact Person:
+                                        </p>
+                                    </td>
+                                    <td width="300">
+                                        <p class="product-fieldspan">
+                                            @Model.CompanyData.ContactName
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Street Address:
+                                        </p>
+                                    </td>
+                                    <td width="300">
+                                        <p class="product-fieldspan">
+                                            @Model.CompanyData.StreetAddress
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Province/State:
+                                        </p>
+                                    </td>
+                                    <td width="300">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.ProvinceState
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Country/Region:
+                                        </p>
+                                    </td>
+                                    <td width="300">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.Country
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Zip:
+                                        </p>
+                                    </td>
+                                    <td width="300">
+                                        <p class="product-fieldspan">
+                                            @Model.CompanyData.Zip
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Telephone
+                                        </p>
+                                    </td>
+                                    <td width="300">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.ContactPhone
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Fax:
+                                        </p>
+                                    </td>
+                                    <td width="300">
+                                        <p class="product-fieldspan">
+                                            @Model.CompanyData.Fax
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Website:
+                                        </p>
+                                    </td>
+                                    <td width="300">
+                                        <p class="product-fieldspan">
+                                            <a href="@Model.CompanyData.WebsiteUrl"></a>@Model.CompanyData.WebsiteUrl
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="supplier-subheader">
+                            Company Profile
+                        </p>
+                        <table>
+                            <tbody>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Company Name:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.Name
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Business Type:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.BusinessType
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Brands:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.Brands
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Products/Services:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.ProductsOrServices
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Registered Address:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.StreetAddressRegistered
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Number of Employees:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.Employees
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Vat/Tax Number:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                            @Model.CompanyData.VatNumber
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="supplier-subheader">
+                            Ownership &amp; Capital
+                        </p>
+                        <table>
+                            <tbody>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Year Established:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                            @Model.CompanyData.YearEstablished
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Legal Representative / Business Owner:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                          @Model.CompanyData.LegalRepresentitiveOrOwnerName
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="supplier-subheader">
+                            Trade &amp; Market
+                        </p>
+                        <table>
+                            <tbody>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Main Markets:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.MainMarket0<br>
+                                            @Model.CompanyData.MainMarket1<br>
+                                            @Model.CompanyData.MainMarket2<br>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Trade Shows:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.TradeShows
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Export Percentage:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                            @Model.CompanyData.SalesExportPercentage
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Total Annual Sales Volume:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                            @Model.CompanyData.TotalSalesVolume
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr class="tr-margin">
+                                    <td class="td-fieldname">
+                                        <p class="supplier-fieldbold">
+                                            Annual Purchase Volume:
+                                        </p>
+                                    </td>
+                                    <td class="td-field">
+                                        <p class="product-fieldspan">
+                                           @Model.CompanyData.AnnualPurchaseVolume
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @Html.Action("GetMoreCompanyProductsAsPartialView", "Product", new {id = @Model.CompanyData.RowKey })
+        </div>
+    </div>
+        <div class="sponsor-all-column">
+        <div class="sponsor-ad-c3-plat sponsor-platinum-200x275">
+            <div class="sponsor-ad-c3-plat-title"><a href="http://www.dhl.co.za">DHL</a></div>
+        </div>
+        <div class="sponsor-ad-c3-gold sponsor-gold-200x275">
+            <div class="sponsor-ad-c3-gold-title"><a href="http://www.netsurit.com/">Netsurit</a></div>
+        </div>
+        <div class="sponsor-ad-c3-silver sponsor-silver-200x275">
+            <div class="sponsor-ad-c3-silver-title"><a href="http://www.teraco.co.za">Teraco</a></div>
+        </div>
+    </div>
+</div>
+

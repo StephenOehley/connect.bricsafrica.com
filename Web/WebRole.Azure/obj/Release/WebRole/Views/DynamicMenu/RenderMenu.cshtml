@@ -1,0 +1,22 @@
+﻿@model BricsWeb.Models.MenuItemModel[]
+           
+<ul>
+
+@foreach(BricsWeb.Models.MenuItemModel item in Model)
+{
+    string itemClass;
+    if (item.IsActive)
+    {
+        itemClass = ViewBag.ActiveItemClass;
+    }
+    else
+    {
+        itemClass = ViewBag.InActiveItemClass;
+    }
+    
+    <li>
+    <a href="@item.Url" class="@itemClass">@item.DisplayName</a>
+    </li>
+}
+
+</ul>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureDeployment" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*" schemaVersion="2012-05.1.7">
+  <Role name="WebRole">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="BuyerRequestTable" value="BuyerRequest" />
+      <Setting name="CategoryTable" value="Category" />
+      <Setting name="CompanyTable" value="Company" />
+      <Setting name="CompanySubscriptionTable" value="CompanySubscription" />
+      <Setting name="ProductTable" value="Product" />
+      <Setting name="TransactionTable" value="Transaction" />
+      <Setting name="StorageAccountKey" value="FxBIcZhwb4cRX8JL3EtaE3JPjFjqpqNcSDgDweCCQI0vehIJafEdCDno7vdcUbI02d1VRB5/psxRPS6iF+ZyeA==" />
+      <Setting name="StorageAccountName" value="DEVELOPERSTORAGE" />
+      <Setting name="Tier1" value="30" />
+      <Setting name="Tier2" value="15" />
+      <Setting name="Tier3" value="7.5" />
+      <Setting name="Tier4" value="3.75" />
+      <Setting name="SubscriptionAmount" value="4000" />
+      <Setting name="BaseUrl" value="http://127.0.0.1:81/" />
+      <Setting name="HrdFeed" value="https://matchmaker.accesscontrol.windows.net:443/v2/metadata/IdentityProviders.js?protocol=wsfederation&amp;realm=http%3a%2f%2fmatchmakerapplication.cloudapp.net%2f&amp;reply_to=%returnurl%&amp;context=%context%&amp;request_id=&amp;version=1.0&amp;callback=?" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="root" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEC7cTfgWBPelR3jkZA5IBwowDQYJKoZIhvcNAQEBBQAEggEAiQxMZSdfxf3z5zPmIfDNiRqkhSzD64oPzRwpA46Oddx2tZuqOo48tqxXZ2/SCFNq01Z4vsTLlWjhnvQXKVcFKbZCyfU+CVXTi9soC8VIvdFMqybuf5tZyggxhFBdnowPSBJfL0aLQGLUZj9rKju5OmOAEqEVYpI/IATSnOKHJ8vIPZ3WFvlFJ8nrnFN9hmzbhQ2MehuL+P/ob3mrurIcQ8HBAbcWtX6OcJAYzJ+Bc3uD4LSmD5fpALgWtpZDdu0LyBiSxY/yaOC/onaPyRRuwTzwyZHE//jN6KgACpTleZnR8fPIupTtJVUE/4SvUhui2ojfD97suPeVKonh+Mu3hDAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECOU7sceESXwBgBCfSYJi9nR+VHTX48V0T1FW" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2013-05-11T23:59:59.0000000+02:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+      <Setting name="AzureUserTable" value="AzureUser" />
+      <Setting name="AzureRoleTable" value="AzureRole" />
+      <Setting name="IsDiagnosticModeEnabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="SSL" thumbprint="CFF08780F8385FABF6D060CEF79049F288A14176" thumbprintAlgorithm="sha1" />
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="AD3AB7F7B62CD2BBFA52F20D849C87CC9CB03AB5" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

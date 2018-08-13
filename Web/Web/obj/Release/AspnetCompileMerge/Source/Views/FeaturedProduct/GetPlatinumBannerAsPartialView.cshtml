@@ -1,0 +1,23 @@
+﻿@model BricsWeb.Models.ProductModel[]
+
+<div class="featured-products-plat-container">
+    <div class="featured-plat-header">
+        <div class="text-searchheaders">Premium Products</div>
+    </div>
+
+    <div class="featured-plat-inner">
+        @foreach (BricsWeb.Models.ProductModel featuredProduct in Model)
+        {       
+            <a href="/Product/Details?id=@featuredProduct.RowKey" target="_blank">
+                <div class="featured-plat">
+                    <div class="plat-image-160">
+                        <img alt="notavailable" height="160" src="@featuredProduct.PhotoUrl" width="160" />
+                    </div>
+                    <div class="plat-title">
+                        @featuredProduct.ProductName
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>

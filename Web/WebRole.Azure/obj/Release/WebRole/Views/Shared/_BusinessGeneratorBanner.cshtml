@@ -1,0 +1,53 @@
+﻿@using System.Web.Mvc;
+
+<div id="bg-banner">
+    <div class="HeaderLogo">
+            <img alt="Business Generator" src="../../Content/Images/BusinessGenerator/LogoBGHeader.png" height="70" width="258"/>
+        </div>
+    <div class="HeaderSponsor">
+            <img alt="Business Generator" src="../../Content/Images/BusinessGenerator/SponsorsLogoHeader.jpg" />
+        </div>
+    <div id="loginoptions" class="right">      
+
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="right">
+            <div class="login right"><a class="arrow" href="../../../account/login">SIGN IN</a></div>
+            <div class="login right"><a href="../../../account/signup">JOIN FREE</a></div>
+            </div>
+        }
+        else
+        {
+             <div class="right">
+                 <div class="welcome">
+                    <p class="text-allcontent">@User.Identity.Name</p>
+                     <div class="login right"><a class="right signup" href="../../../account/logout?returnurl=/">LOGOUT</a></div>
+                </div>               
+                
+            </div>           
+        }
+    </div>
+</div>
+
+<div id="clocks">
+    <div class="clock-inner-container">
+        <div class="clockface" style="background-image: url('../../Content/Images/BusinessGenerator/Clock-Grey.png')"></div>
+        <div class="time-container">
+            <div id="johannesburg" class="right timezone">
+                <span id="zone-johannesburg" class="timetext">0:00</span><p class="clock-title">Johannesburg</p>
+            </div>
+            <div id="shanghai" class="right timezone">
+                <span id="zone-shanghai" class="timetext">0:00</span><p class="clock-title">Shanghai</p>
+            </div>
+            <div id="mumbai" class="right timezone">
+                <span id="zone-mumbai" class="timetext">0:00</span><p class="clock-title">Mumbai</p>
+            </div>
+            <div id="moscow" class="right timezone">
+                <span id="zone-moscow" class="timetext">0:00</span><p class="clock-title">Moscow</p>
+            </div>
+            <div id="saupaulo" class="right timezone">
+                <span id="zone-saupolo" class="timetext">0:00</span><p class="clock-title">São Paulo</p>
+            </div>
+        </div>
+    </div>
+</div>

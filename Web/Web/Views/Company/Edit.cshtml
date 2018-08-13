@@ -1,0 +1,346 @@
+﻿@model BricsWeb.LocalModels.CompanyViewModel
+       
+@{
+    ViewBag.Title = "Company Profile";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<div class="form-profile">
+<img src="../../Content/Images/BusinessGenerator/step_company.png" />
+<br />
+<br />
+<form action="/Company/Edit" id="saveform" method="post">    
+<h1 class="text-bg-formcontent">Company Profile</h1>
+<div class="text-allcontent">
+    <br />
+   @* @if (ViewBag.ShowUpgradeLink)
+    {
+        @Html.ActionLink("Upgrade Account", "Purchase", "Payment");
+        <br />
+        <br />
+    }
+    else
+    {
+       if (!Model.IsChamber)
+       {
+          <p>Subscription Status: Upgraded</p>
+           <br />
+           <br />
+       }
+    }*@
+    <label for="Name">Company Name</label><br />
+    <input accesskey="n" class="required input-padding" data-val="true" data-val-required="The Company Name field is required." id="CompanyData.Name" name="CompanyData.Name" style="width: 227px"" type="text" value="@Model.CompanyData.Name" />
+    <br />
+    <label for="logo">Upload logo (240x240 - Max Size 2MB)</label><br />
+    <input type="file" name="logo"/>
+    <br />
+    <br />
+    <img id="CompanyLogo" src="@Model.CompanyData.LogoUrl" alt="notavailable"/>
+    <br />
+    <br />
+    
+     <label for="CompanyData.ChamberID">Associated Chamber</label><br />
+    <select data-val="true" data-val-required="The Business type field is required." id="CompanyData.ChamberID" name="CompanyData.ChamberID" class="input-padding">
+        <option value="none">Not Applicable</option>
+        @foreach (BricsWeb.Models.CompanyModel chamber in (ViewBag.ChamberArray as BricsWeb.Models.CompanyModel[]))
+        {
+            if (Model.CompanyData.ChamberID == chamber.RowKey)
+            {
+              <option selected value="@chamber.RowKey">@chamber.Name</option>
+            }
+            else
+            {               
+                <option value="@chamber.RowKey">@chamber.Name</option>
+            }
+        }
+    </select>
+    <br />
+    <label for="BusinessType">Business Type</label><br />
+    <select data-val="true" data-val-required="The Business type field is required." id="BusinessType" name="CompanyData.BusinessType" class="input-padding">
+        <option>Association</option>
+        <option>Business Service</option>
+        <option>Buying Office</option>
+        <option>Distributor/Wholesaler</option>
+        <option>Exporter</option>
+        <option>Government</option>
+        <option>Manufacturer</option>
+        <option>Manufacturer Agent</option>
+        <option>Retail</option>
+        <option>Trading Company</option>
+        <option>Chamber</option>
+    </select>
+    <br />
+    <label for="AccountsEmail">Accounts Email</label><br />
+    <input accesskey="a" class="required input-padding" data-val="true" data-val-required="The Accounts Email field is required." id="AccountsEmail" name="CompanyData.AccountsEmail" style="width: 227px"" type="text" value="@Model.CompanyData.AccountsEmail" />
+    <br />
+     
+    <label for="SalesEmail">Sales Email</label><br />
+    <input accesskey="s" class="required input-padding" data-val="true" data-val-required="The Sales Email field is required." id="SalesEmail" name="CompanyData.SalesEmail" style="width: 227px"" type="text" value="@Model.CompanyData.SalesEmail" />
+    <br />
+      
+    <label for="ContactName">Contact Name</label><br />
+    <input accesskey="s" class="required input-padding" data-val="true" data-val-required="The Contact Name field is required." id="ContactName" name="CompanyData.ContactName" style="width: 227px"" type="text" value="@Model.CompanyData.ContactName" />
+    <br />
+    
+    <label for="ContactPosition">Contact Position</label><br />
+    <input accesskey="s" class="required input-padding" id="ContactPosition" name="CompanyData.ContactPosition" style="width: 227px"" type="text" value="@Model.CompanyData.ContactPosition" />
+    <br />
+  
+    <label for="ContactPhone">Contact Phone</label><br />
+    <input accesskey="s" class="input-padding" id="ContactPhone" name="CompanyData.ContactPhone" style="width: 227px"" type="text" value="@Model.CompanyData.ContactPhone" />
+    <br />
+    <label for="ContactMobile">Contact Mobile</label><br />
+    <input accesskey="s" class="input-padding" id="ContactMobile" name="CompanyData.ContactMobile" style="width: 227px"" type="text" value="@Model.CompanyData.ContactMobile" />
+    <br />
+   
+    <label for="StreetAddress">Street Address</label><br />
+    <textarea accesskey="s" class="input-padding" cols="20" id="StreetAddress" name="CompanyData.StreetAddress" rows="2" style="width: 227px">
+    @Model.CompanyData.StreetAddress
+    </textarea>
+    <br />
+
+    <label for="Zip">Zip</label><br />
+    <input accesskey="s" class="input-padding" id="Zip" name="CompanyData.Zip" style="width: 227px"" type="text" value="@Model.CompanyData.Zip" />
+    <br />
+
+    <label for="ProvinceState">Province Or State</label><br />
+    <input accesskey="s" class="input-padding" id="ProvinceState" name="CompanyData.ProvinceState" style="width: 227px"" type="text" value="@Model.CompanyData.ProvinceState" />
+    <br />
+ 
+     <label for="Country">Country</label><br />
+    @Html.DropDownListFor(model => Model.CompanyData.Country, BricsWeb.WebHelper.DropdownGenerator.GetCountrySelectList(), new { @class = "input-padding", id = "Country" })
+
+    <br />
+     
+    <label for="VatNumber">VAT Number</label><br />
+    <input accesskey="s" class="input-padding" id="VatNumber" name="CompanyData.VatNumber" style="width: 227px"" type="text" value="@Model.CompanyData.VatNumber" />
+    <br />
+     
+    <label for="WebsiteUrl">Website URL</label><br />
+    <input accesskey="s" class="input-padding" id="WebsiteUrl" name="CompanyData.WebsiteUrl" style="width: 227px"" type="text" value="@Model.CompanyData.WebsiteUrl" />
+    <br />
+     
+    <label for="Fax">Fax</label><br />
+    <input accesskey="s" class="input-padding" id="Fax" name="CompanyData.Fax" style="width: 227px"" type="text" value="@Model.CompanyData.Fax" />
+    <br />
+    
+    <label for="StreetAddressRegistered">Street Address (Registered)</label><br />
+    <textarea accesskey="s" class="input-padding" cols="20" id="StreetAddressRegistered" name="CompanyData.StreetAddressRegistered" rows="2" style="width: 227px; height: 227px">
+    @Model.CompanyData.StreetAddress
+    </textarea>
+
+    <br />
+    
+    <label for="ZipRegistered">Postal Code\Zip (Registered)</label><br />
+    <input accesskey="s" class="input-padding" id="ZipRegistered" name="CompanyData.ZipRegistered" style="width: 227px"" type="text" value="@Model.CompanyData.ZipRegistered" />
+    <br />
+            <label for="ProvinceStateRegistered">Province Or State (Registered)</label><br />
+    <input accesskey="s" class="input-padding" id="ProvinceStateRegistered" name="CompanyData.ProvinceStateRegistered" style="width: 227px"" type="text" value="@Model.CompanyData.ProvinceStateRegistered" />
+    <br />
+      
+    <label for="CountryRegistered">Country (Registered)</label><br />
+    @Html.DropDownListFor(model => Model.CompanyData.CountryRegistered, BricsWeb.WebHelper.DropdownGenerator.GetCountrySelectList(), new { @class = "input-padding", id = "CountryRegistered" })
+   
+    <br />
+ 
+   @* <label for="BusinessType">Business Type</label><br />
+    <input accesskey="s" class="required input-padding" data-val="true" data-val-required="The Business Type field is required." id="BusinessType" name="BusinessType" style="width: 227px"" type="text" value="@Model.BusinessType" />*@
+
+    <br />
+    <label for="YearEstablished">Year Established</label><br />
+    <input accesskey="s" class="input-padding" id="YearEstablished" name="CompanyData.YearEstablished" style="width: 227px"" type="text" value="@Model.CompanyData.YearEstablished" />
+    <br />
+   
+    <label for="Brands">Brands</label><br />
+    <textarea accesskey="s" class="input-padding" cols="20" id="Brands" name="CompanyData.Brands" rows="2" style="width: 227px; height: 200px">
+    @Model.CompanyData.Brands
+    </textarea>
+    <br />
+       
+    <label for="ProductsOrServices">Products\Services Offered</label><br />
+    <input accesskey="s" class="input-padding" data-val="true" data-val-required="The Products\Services Offered field is required." id="ProductsOrServices" name="CompanyData.ProductsOrServices" style="width: 227px"" type="text" value="@Model.CompanyData.ProductsOrServices" />
+    <br />
+    
+    <label for="Employees">Number Of Employees</label><br />
+    @*<input accesskey="s" class="required input-padding" data-val="true" data-val-required="The Number Of Employees field is required." id="Employees" name="Employees" style="width: 227px"" type="text" value="@Model.Employees" />*@
+    <select data-val="true" data-val-required="The Number Of Employees field is required." id="Employees" name="CompanyData.Employees" class="input-padding">
+    <option>1-10</option>
+    <option>11-50</option>
+    <option>51-100</option>
+    <option>101-200</option>
+    <option>201-500</option>
+    <option>500-1000</option>
+    <option>1000+</option>
+    </select>
+    <br />
+    
+    <label for="OwnershipAndCapital">Ownership &amp; Capital</label><br />
+    <input accesskey="s" class="input-padding" data-val="true" data-val-required="The Ownership &amp;amp; Capital field is required." id="OwnershipAndCapital" name="CompanyData.OwnershipAndCapital" style="width: 227px"" type="text" value="@Model.CompanyData.OwnershipAndCapital" />
+    <br />
+    
+    <label for="LegalRepresentitiveOrOwnerName">Legal Representitive \ Business Owner</label><br />
+    <input accesskey="s" class="input-padding" data-val="true" data-val-required="The Legal Representitive \ Business Owner field is required." id="LegalRepresentitiveOrOwnerName" name="CompanyData.LegalRepresentitiveOrOwnerName" style="width: 227px"" type="text" value="@Model.CompanyData.LegalRepresentitiveOrOwnerName" />
+    <br />
+ 
+    <label for="MainMarkets">Main Markets</label><br />
+  @*<input accesskey="s" class="required input-padding" data-val="true" data-val-required="The Main Markets field is required." id="MainMarket0" name="MainMarket0" style="width: 227px"" type="text" value="@Model.MainMarket0" />
+    <input accesskey="s" class="required input-padding" data-val="true" data-val-required="The Main Markets field is required." id="MainMarket1" name="MainMarket1" style="width: 227px"" type="text" value="@Model.MainMarket1" />
+    <input accesskey="s" class="required input-padding" data-val="true" data-val-required="The Main Markets field is required." id="MainMarket2" name="MainMarket2" style="width: 227px"" type="text" value="@Model.MainMarket2" />*@
+     
+    @Html.DropDownListFor(model => Model.CompanyData.MainMarket0, BricsWeb.WebHelper.DropdownGenerator.GetCountrySelectList(), new { @class = "input-padding", id = "MainMarket0" })
+    @Html.DropDownListFor(model => Model.CompanyData.MainMarket1, BricsWeb.WebHelper.DropdownGenerator.GetCountrySelectList(), new { @class = "input-padding", id = "MainMarket1" })
+    @Html.DropDownListFor(model => Model.CompanyData.MainMarket2, BricsWeb.WebHelper.DropdownGenerator.GetCountrySelectList(), new { @class = "input-padding", id = "MainMarket2" })
+    
+    <br />     
+    <label for="TotalSalesVolume">Total Sales Volume (USD)</label><br />
+    <input accesskey="s" class="input-padding" data-val="true" data-val-required="The Total Sales Volume field is required." id="TotalSalesVolume" name="CompanyData.TotalSalesVolume" style="width: 227px"" type="text" value="@Model.CompanyData.TotalSalesVolume" />
+    <br />
+     
+    <label for="SalesExportPercentage">Sales Export Percentage</label><br />
+    @*<input accesskey="s" class="required input-padding" data-val="true" data-val-number="The field Sales Export Percentage must be a number." data-val-required="The Sales Export Percentage field is required." id="SalesExportPercentage" name="SalesExportPercentage" style="width: 227px"" type="text" value="@Model.SalesExportPercentage" />*@
+    <select data-val="true" data-val-required="The Sales Export Percentage field is required." id="SalesExportPercentage" name="CompanyData.SalesExportPercentage" class="input-padding">
+        <option>0-10</option>
+        <option>20-30</option>
+        <option>30-40</option>
+        <option>40-50</option>
+        <option>50-60</option>
+        <option>60-70</option>
+        <option>70-80</option>
+        <option>80-90</option>
+        <option>90-100</option>
+    </select>
+    <br />
+       
+    <label for="AnnualPurchaseVolume">Annual Purchase Volume (USD)</label><br />
+    <input accesskey="s" class="input-padding" data-val="true" data-val-number="The field Annual Purchase Volume (USD) must be a number." data-val-required="The Annual Purchase Volume (USD) field is required." id="AnnualPurchaseVolume" name="CompanyData.AnnualPurchaseVolume" style="width: 227px"" type="text" value="@Model.CompanyData.AnnualPurchaseVolume" />
+    <br />
+
+     <label for="TradeShows">Trade Shows</label><br />
+     <textarea accesskey="s" class="input-padding" cols="20" data-val="true" data-val-required="The TradeShows field is required." id="TradeShows" name="CompanyData.TradeShows" rows="50" style="width: 227px; height: 200px">
+     @Model.CompanyData.TradeShows
+    </textarea>
+    <br />
+    <input name="__RequestVerificationToken" type="hidden"" />
+    <input type="hidden" name="CompanyData.RowKey" value="@Model.CompanyData.RowKey"/>
+    <input type="hidden" name="CompanyData.LogoUrl" value="@Model.CompanyData.LogoUrl"/>
+    <input type="hidden" name="CompanyData.IsChamberCertified" value="@Model.CompanyData.IsChamberCertified"/>
+    <input type="hidden" name="CompanyData.IsGreenCertified" value="@Model.CompanyData.IsGreenCertified"/>
+    <input type="hidden" name="test" value="helloworld"/>
+    <input type="submit" id="bSave" name="bSave" value="Save" accesskey="s" class="form-button" />
+    <div id="saveform-message"></div>
+    <noscript>
+        <br />
+        <br />
+        <div class="tip">
+            Please enable javascript to use this page.
+        </div>
+    </noscript>
+        <br/> <br/>
+</div>
+</form>
+ @if (Model.IsChamber)
+ {
+     <div class="text-allcontent">
+        <p>Provide your registered members with this URL to associate themselves with you : <br />  @Model.ChamberSubscribeUrl</p>
+        <br />
+        <br />
+        <p>Provide your registered Green-Certified members with this URL to claim their status : <br /> @Model.GreenSubscribeUrl</p>
+        <br />
+        <br />
+        <br />
+        </div>
+ }
+</div>
+
+<script src="../../Scripts/jquery.form.js" type="text/javascript"></script>
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $("#Country").val("@Model.CompanyData.Country").attr("selected", "selected");
+        $("#CountryRegistered").val("@Model.CompanyData.CountryRegistered").attr("selected", "selected");
+        $("#BusinessType").val("@Model.CompanyData.BusinessType").attr("selected", "selected");
+        $("#Employees").val("@Model.CompanyData.Employees").attr("selected", "selected");
+        $("#SalesExportPercentage").val("@Model.CompanyData.SalesExportPercentage").attr("selected", "selected");
+
+        $("#MainMarket0").val("@Model.CompanyData.MainMarket0").attr("selected", "selected");
+        $("#MainMarket1").val("@Model.CompanyData.MainMarket1").attr("selected", "selected");
+        $("#MainMarket2").val("@Model.CompanyData.MainMarket2").attr("selected", "selected");
+
+        new setupAjaxForm('saveform')
+
+        $("#saveform").validate({
+            rules: {
+                'CompanyData.AccountsEmail': {
+                             required: true,
+                             email: true
+                },
+                'CompanyData.SalesEmail': {
+                             required: true,
+                             email: true
+               },
+               'CompanyData.Name': {
+                             required: true,
+                             email: false
+                },
+                'CompanyData.ContactName': {
+                             required: true,
+                             email: false
+                }
+            },
+            messages: {
+                'CompanyData.AccountsEmail': {
+                    required: "We need your email address to contact you",
+                    email: "Your email address must be in the format of name@domain.com"
+                },
+                'CompanyData.SalesEmail': {
+                    required: "We need your email address to contact you",
+                    email: "Your email address must be in the format of name@domain.com"
+                },
+                'CompanyData.Name': {
+                    required: "Company Name Is Required"
+                },
+                'CompanyData.Contactname': {
+                    required: "Contact Name Is Required"
+                }
+            }
+        })
+    });
+
+    function setupAjaxForm(form_id, form_validations) {
+        var form = '#' + form_id;
+        var form_message = form + '-message';
+
+        // en/disable submit button
+        var disableSubmit = function (val) {
+            $(form + ' input[type=submit]').attr('disabled', val);
+        };
+
+        // setup saving message
+        $(form).ajaxSend(function () {
+            
+        });
+
+        // setup jQuery Plugin 'ajaxForm'
+        var options = {
+            dataType: 'json',
+            beforeSubmit: function () {
+                // run form validations if they exist
+                if (typeof form_validations == "function" && !form_validations()) {
+                    // this will prevent the form from being subitted
+                    return false;
+                }
+                $(form_message).removeClass().addClass('saving').html('Saving...').fadeIn();
+                disableSubmit(true);
+            },
+            success: function (json) {
+                $(form_message).hide();
+                $(form_message).removeClass().addClass(json.status).html(json.message).fadeIn('slow');
+                disableSubmit(false);
+                $("#CompanyLogo").attr("src", json.photourl);
+                var productname = $('#ProductName').val();
+                var productrowkey = $('#RowKey').val();
+            }
+        };
+        $(form).ajaxForm(options);
+    }
+</script>

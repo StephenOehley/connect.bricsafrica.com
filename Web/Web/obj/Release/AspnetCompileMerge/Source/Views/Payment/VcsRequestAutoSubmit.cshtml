@@ -1,0 +1,18 @@
+﻿@model BricsWeb.LocalModels.TransactionViewModel
+
+@{
+    Layout = null ;
+}
+
+<form method=post action="https://vcs.co.za/vvonline/ccform.asp">
+<input type="hidden" name = "p1" value="@Model.TerminalID_p1" />
+<input type="hidden" name = "p2" value="@Model.TransactionID_p2" />
+<input type="hidden" name = "p3" value="@Model.Description_p3" />
+<input type="hidden" name = "p4" value="@Model.Amount_p4" />
+<input type="hidden" name = "CardHolderEmail" value="@Model.CardholderEmail_CardHolderEmail" />
+<input type="hidden" name = "m_1" value="@Model.CompanyID_m_1" />
+<input type="hidden" name = "Md5Key" value="@Model.HashPassword_HashPassword" />
+<input type="hidden" name = "Hash" value="@Model.Hash_Hash" />
+
+<input type="submit" value="Proceed To Payment" />
+</form>

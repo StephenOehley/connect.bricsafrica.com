@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Product Search";
+    ViewBag.CountrySelectItemList = BricsWeb.WebHelper.DropdownGenerator.GetCountrySelectList();
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+<script language="javascript" type="text/javascript">
+    var currentPage = 0;
+    var maxPage = 0;
+    var itemsPerPage = 25;
+    var selectedCategoryID = '0';
+</script>
+
+<div class="form-profile-search">
+    <div id="searchbar" class="searchbar-container">
+        <div class="searchbar-left">
+            <div class="searchbar-left-inner">
+                <div id="CategoryDropdownContainer" class="category-container">
+                    @Html.Action("GetCategoryDropdownAsPartialView", "Category")
+                </div>
+                <div class="search-input-container">
+                    <input id="SearchInput" type="text" class="searchinput text-allcontent left" />
+                </div>
+                <div class="search-image-container">
+                    <input type="image" src="../../Content/Images/BusinessGenerator/Search.png" class="search-go left" id="SearchButton" />
+                </div>
+            </div>
+        </div>
+        <div class="searchbar-right">
+            <div class="searchbar-right-inner">
+                @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.CountrySelectItemList, new { @class = "countryregion text-allcontent" })
+            </div>
+        </div>
+    </div>
+
+    <div id="BreadCrumbNavigationContainer" class="branchview text-allcontent">
+        @Html.Action("GetNavigationBreadcrumbAsPartialView", "Category", new { categoryid = "0", leadstring = "Home > Products >" })
+    </div>
+
+    <div id="CategoryFilterContainer" class="main-c1">
+        @Html.Action("GetCategoryFilterAsPartialView", "Category")       
+    </div>
+
+    <div id="ResultsContainer">
+        @Html.Action("GetProductHomeAsPartialView", "FeaturedProduct")       
+    </div>  
+
+    <div id="GoldSilverBannerContainer">       
+    </div>
+
+</div>
+
+<script type="text/javascript" src="../../Scripts/pageManagementCore.js"></script>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        resizeNarrow();//product home search page requires narrow page 
+    });
+
+    function Search(pageNumber) {
+        $('#SearchLoadingImage').removeClass('hiddenimage');
+
+        var searchText = encodeURIComponent($('#SearchInput').val());
+        var selectedCountryText = encodeURIComponent($('#Country').val());
+
+        if (pageNumber == null) {
+            currentPage = 1;
+        }
+
+        $.get('/product/GetSearchResultsAsPartialView?categoryID=' + encodeURIComponent(selectedCategoryID) + '&searchText=' + searchText + '&country=' + selectedCountryText + '&page=' + currentPage + '&productsPerPage=' + itemsPerPage, function (data) {
+            $('#ResultsContainer').html(data);
+            new bindItemsPerPageLinks();
+            new bindPageNavigationLinks();
+
+            UpdatePlatinumBanner();
+            UpdateGoldSilverBanner();
+            UpdateCategorySponsorBanner();
+        })
+    }
+</script>

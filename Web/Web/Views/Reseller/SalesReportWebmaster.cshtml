@@ -1,0 +1,12 @@
+﻿@model BricsWeb.Models.CompanyModel[]
+
+@{
+    ViewBag.Title = "SalesReportWebmaster";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+
+@foreach (BricsWeb.Models.CompanyModel company in Model)
+{
+    <a href="/reseller/SalesReportReseller?userid=@company.RowKey">@company.Name</a>
+    <br />
+}

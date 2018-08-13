@@ -1,0 +1,26 @@
+{
+  "Items" : [
+    {
+      "DisplayName" : "Product Search",
+      "Url" : "/Product/Search",
+      "IsActive" : false,
+      "AllowedRoles" : [
+      ]
+    },
+    {
+      "DisplayName" : "Buyer Requirements Search",
+      "Url" : "/BuyerRequest/Search",
+      "IsActive" : false,
+      "AllowedRoles" : [
+      ]
+    },
+	{
+      "DisplayName" : "Supplier Search",
+      "Url" : "/Company/Search",
+      "IsActive" : false,
+      "AllowedRoles" : [
+      ]
+    }
+  ],
+  "MenuName" : "SubMenuFindAProduct"
+}

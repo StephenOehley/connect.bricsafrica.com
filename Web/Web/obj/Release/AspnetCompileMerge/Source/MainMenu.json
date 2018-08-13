@@ -1,0 +1,36 @@
+﻿{
+  "Items" : [
+    {
+      "DisplayName" : "FIND A PRODUCT",
+      "Url" : "/Product/Search",
+      "IsActive" : false,
+      "AllowedRoles" : [
+      ]
+    },
+    {
+      "DisplayName" : "MY PROFILE",
+      "Url" : "/Account/UpdateUser",
+      "IsActive" : false,
+      "AllowedRoles" : [
+        "RegisteredUser"
+      ]
+    },
+    {
+      "DisplayName" : "RESELLER SALES REPORT",
+      "Url" : "/Reseller/SalesReport",
+      "IsActive" : false,
+      "AllowedRoles" : [
+        "RegisteredReseller"
+      ]
+    },
+	{
+      "DisplayName" : "WEBMASTER",
+      "Url" : "/company/masteredit",
+      "IsActive" : false,
+      "AllowedRoles" : [
+        "Webmaster"
+      ]
+    }
+  ],
+  "MenuName" : "MainMenu"
+}

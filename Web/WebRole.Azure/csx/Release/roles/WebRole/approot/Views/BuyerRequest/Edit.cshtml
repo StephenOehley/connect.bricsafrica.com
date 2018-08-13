@@ -1,0 +1,167 @@
+﻿@model BricsWeb.LocalModels.BuyerRequestViewModel
+@{
+    ViewBag.Title = "Edit Buyer Requirements";
+    Layout = "~/Views/Shared/_BusinessGeneratorLayout.cshtml";
+}
+<link href="../../Content/Styles/jquery-ui-1.8.18.css" rel="stylesheet" type="text/css" />
+<div class="form-profile text-allcontent form-padding clearfix">
+    <img src="../../Content/Images/BusinessGenerator/step_buyer.png" />
+    <br />
+    <br />
+    <div id="contentcentreleft" class="left" style="width: 200px">
+        <h1 class="text-bg-formcontent">
+            My Requests</h1>
+        <br />
+        <div class="productedit">
+            <img src="../../Content/Images/BusinessGenerator/Plus.png" class="left" />
+            <a id="create" href="#create" class="be-textblue">&nbsp;&nbsp;Create Request</a>
+        </div>
+        <div class="productedit">
+            <img src="../../Content/Images/BusinessGenerator/Minus.png" class="left" />
+            <a id="remove" href="#delete" class="be-textblue">&nbsp;&nbsp;Remove Request</a>
+        </div>
+        <div class="productedit">
+            <img src="../../Content/Images/BusinessGenerator/Refresh.png" class="left" />
+            <a id="refresh" href="#refresh" class="be-textblue">&nbsp;&nbsp;Refresh...</a>
+        </div>
+        @Html.Label("Requests List")
+        <br />
+        <br />
+        <div id="RequestListContainer">
+            @Html.Action("GetRequestsAsPartialView", "BuyerRequest")
+        </div>
+    </div>
+    <div id="contentcentrecentre" class="left text-allcontent form-padding clearfix">
+    <div id="RequestFormContainer">
+    @Html.Action("GetEditFormAsPartialView", "BuyerRequest", new { id = Model.RequestData.RowKey })
+    </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script src="../../Scripts/jquery.form.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $("#CategoryList").val("@Model.RequestData.Category").attr("selected", "selected")
+
+        $('#RequestData_DateExpire').datepicker();
+        new setupAjaxForm('requestform');
+
+
+        $("#create").click(function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            $('#requestform').unbind('submit').find('input:submit,input:image,button:submit').unbind('click');
+
+            $.get('/BuyerRequest/GetEditFormAsPartialView', function (data) {
+                $('#RequestFormContainer').html(data);
+                new setupAjaxForm('requestform');
+            })
+
+            return false;
+        });
+
+        $("#remove").click(function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var rk = $('#RowKey').val();
+            if (rk != undefined) {
+                var requestrowkey = encodeURIComponent(rk);
+                $.getJSON('/BuyerRequest/delete?id=' + requestrowkey, function (data) {
+
+                })
+
+                $.get('/BuyerRequest/GetRequestsAsPartialView', function (productdata) {
+                    new refreshRequestList()
+                    $('#RequestFormContainer').contents().remove();
+                })
+            }
+
+            return false;
+        });
+
+        $("#refresh").click(function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            new refreshRequestList();
+
+            return false;
+        });
+
+
+        new bindEditLink();
+    });
+
+    function setupAjaxForm(form_id, form_validations) {
+
+        var cat = $('#Category').val();
+        $("#RequestDataCategory").val(cat).attr("selected", "selected")
+
+        var form = '#' + form_id;
+        var form_message = form + '-message';
+
+        // en/disable submit button
+        var disableSubmit = function (val) {
+            $(form + ' input[type=submit]').attr('disabled', val);
+        };
+
+        // setup saving message
+        $(form).ajaxSend(function () {
+
+        });
+
+        // setup jQuery Plugin 'ajaxForm'
+        var options = {
+            dataType: 'json',
+            beforeSubmit: function () {
+                // run form validations if they exist
+                if (typeof form_validations == "function" && !form_validations()) {
+                    // this will prevent the form from being subitted
+                    return false;
+                }
+                $(form_message).removeClass().addClass('saving').html('Saving...').fadeIn();
+                disableSubmit(true);
+            },
+            success: function (json) {
+                $(form_message).hide();
+                $(form_message).removeClass().addClass(json.status).html(json.message).fadeIn('slow');
+                disableSubmit(false);
+                $("#requestphoto").attr("src", json.photourl);
+                new refreshRequestList(); //TODO: Optimize by eliminating server call
+            }
+        };
+        $(form).ajaxForm(options);
+    }
+
+    function refreshRequestList() {
+        $(".editlink").unbind('click');
+
+        $.get('/BuyerRequest/GetRequestsAsPartialView', function (data) {
+            $('#RequestListContainer').html(data);
+            new bindEditLink();
+        })
+    }
+
+    function bindEditLink() {
+        $(".editlink").click(function (event) {
+            var rowkey = encodeURIComponent($(this).attr('href'));
+            var uri = '/BuyerRequest/GetEditFormAsPartialView?id=' + rowkey;
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            $('#requestform').unbind('submit').find('input:submit,input:image,button:submit').unbind('click');
+
+            $.get(uri, function (data) {
+                $('#RequestFormContainer').html(data);
+                new setupAjaxForm('requestform');
+            })
+
+            return false;
+        });
+    }
+
+</script>

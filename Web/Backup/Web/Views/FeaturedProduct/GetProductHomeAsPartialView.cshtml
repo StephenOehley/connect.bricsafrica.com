@@ -1,0 +1,38 @@
+﻿@model BricsWeb.Models.ProductModel[]
+<div class="home-main-container forcepagenarrow">
+    <div class="sponsor-ad-c2-plat" style="background-image: url('../../Content/Images/BusinessGenerator/Sponsor750X300.png')">
+        <div class="sponsor-ad-c2-plat-title"><a href="http://www.dhl.co.za">Excellence Simply Delivered</a></div>
+    </div>
+
+    <div class="featured-products-home-plat-container">
+        <div class="featured-plat-home-header">
+            <div class="text-featued-plat-home">
+                <img id="SearchLoadingImage" src="../../Content/Images/Shared/throbber.gif" class="hiddenimage" style="float: left"/><div>Featured Products</div>
+            </div>
+        </div>
+        <div class="featured-plat-home-inner">
+            @foreach (BricsWeb.Models.ProductModel featuredProduct in Model)
+            {          
+                <a href="/Product/Details?id=@featuredProduct.RowKey" target="_blank">
+                    <div class="featured-plat-home">
+                        <div class="plat-image-120">
+                            <img alt="" height="120" src="@featuredProduct.PhotoUrl" width="120"/>
+                        </div>
+                        <div class="plat-title">
+                            @featuredProduct.ProductName
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+    <div class="sponsor-ad-c2-gold sponsor-gold-750x180">
+        <div class="sponsor-ad-c2-gold-title"><a href="http://www.netsurit.com/">Netsurit</a></div>
+    </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+    currentPage = 1;
+    productsPerPage = 25;
+    maxPage = 1;
+</script>

@@ -1,0 +1,22 @@
+﻿@model BricsWeb.Models.ProductModel[]
+
+<div class="featured-morefrom-container">
+    <div class="featured-morefrom-header">
+        <div class="text-searchheaders">More Products From Supplier</div>
+    </div>
+    <div class="featured-morefrom-inner">
+        @foreach (BricsWeb.Models.ProductModel product in Model)
+        {
+            <div class="featured-morefrom">
+                <a href="/Product/Details?id=@product.RowKey" target="_blank">
+                    <div class="morefrom-image-120">
+                        <img alt="Product Photo" src="@product.PhotoUrl" />
+                    </div>
+                    <div class="morefrom-title">
+                        @product.ProductName
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

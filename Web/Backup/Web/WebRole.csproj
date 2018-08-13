@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B62991E5-D6B0-42FF-8DEE-3A79CF5CCBF6}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BricsWeb</RootNamespace>
+    <AssemblyName>BricsWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxisApp">
+      <HintPath>..\dll\AxisApp.dll</HintPath>
+    </Reference>
+    <Reference Include="AzureHelper, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\dll\AzureHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="FizzWare.NBuilder">
+      <HintPath>..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer">
+      <HintPath>..\dll\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Microsoft.IdentityModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.1.7.0.0\lib\net35-full\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.Caching.1.7.0.0\lib\net35-full\Microsoft.WindowsFabric.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Data.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.Caching.1.7.0.0\lib\net35-full\Microsoft.WindowsFabric.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="msshrtmi, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\msshrtmi.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcHelper, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\dll\MvcHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.3.8.3\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\Windows\assembly\GAC_MSIL\System.Data.SqlServerCe\4.0.0.0__89845dcd8080cc91\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ElmahController.cs" />
+    <Compile Include="BricsApplication\ApplicationContext.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdvertisingController.cs" />
+    <Compile Include="Controllers\BackupController.cs" />
+    <Compile Include="Controllers\BuyerRequestController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DynamicMenuController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstallController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ResellerController.cs" />
+    <Compile Include="Controllers\RssController.cs" />
+    <Compile Include="ErrorEntity.cs" />
+    <Compile Include="ExtensionMethods\Linq.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LocalModels\BackupModel.cs" />
+    <Compile Include="LocalModels\BuyerRequestViewModel.cs" />
+    <Compile Include="LocalModels\CategoryViewModel.cs" />
+    <Compile Include="LocalModels\CompanySearchResultViewModel.cs" />
+    <Compile Include="LocalModels\CompanyViewModel.cs" />
+    <Compile Include="LocalModels\ContactSupplierModel.cs" />
+    <Compile Include="LocalModels\ProductViewModel.cs" />
+    <Compile Include="LocalModels\PurchaseViewModel.cs" />
+    <Compile Include="LocalModels\ProductSearchResultViewModel.cs" />
+    <Compile Include="LocalModels\TransactionHistoryModel.cs" />
+    <Compile Include="LocalModels\TransactionViewModel.cs" />
+    <Compile Include="LocalModels\TreeItemModel.cs" />
+    <Compile Include="Models\BuyerRequestModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\CompanySubscriptionModel.cs" />
+    <Compile Include="Models\CountryModel.cs" />
+    <Compile Include="Models\MenuItemCollectionModel.cs" />
+    <Compile Include="Models\MenuItemModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\SubscriptionProductModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RepositoryHelper\CategoryHelper.cs" />
+    <Compile Include="RepositoryHelper\CompanyHelper.cs" />
+    <Compile Include="RepositoryHelper\CompanySubscriptionHelper.cs" />
+    <Compile Include="RepositoryHelper\ProductHelper.cs" />
+    <Compile Include="RepositoryHelper\ResellerHelper.cs" />
+    <Compile Include="RepositoryHelper\TestDataHelper.cs" />
+    <Compile Include="Repository\BuyerRequestRepository.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\CompanyRepository.cs" />
+    <Compile Include="Repository\CompanySubscriptionRepository.cs" />
+    <Compile Include="Repository\CountryRepository.cs" />
+    <Compile Include="Repository\PhotoRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\SubscriptionProductRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
+    <Compile Include="LocalModels\ProductSearchResultModel.cs" />
+    <Compile Include="WebHelper\DropdownGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\Images\BusinessGenerator\Approved.png" />
+    <Content Include="Content\Images\BusinessGenerator\arrow-large-grey-r.png" />
+    <Content Include="Content\Images\BusinessGenerator\B2BHome.png" />
+    <Content Include="Content\Images\BusinessGenerator\BadgeBronze.png" />
+    <Content Include="Content\Images\BusinessGenerator\BadgeChamber.png" />
+    <Content Include="Content\Images\BusinessGenerator\BadgeGold.png" />
+    <Content Include="Content\Images\BusinessGenerator\BadgeGreen.png" />
+    <Content Include="Content\Images\BusinessGenerator\BadgePlatinum.png" />
+    <Content Include="Content\Images\BusinessGenerator\BadgeSilver.png" />
+    <Content Include="Content\Images\BusinessGenerator\BadgeVerified.png" />
+    <Content Include="Content\Images\BusinessGenerator\BGBanner.png" />
+    <Content Include="Content\Images\BusinessGenerator\bricsafricafeed.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\BRICSSplashpage.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\BRICSSplashpageRev1.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\BusGenHome.png" />
+    <Content Include="Content\Images\BusinessGenerator\Clock-Grey.png" />
+    <Content Include="Content\Images\BusinessGenerator\ContactBuyer.png" />
+    <Content Include="Content\Images\BusinessGenerator\ContactSupplier.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\favicon.ico" />
+    <Content Include="Content\Images\BusinessGenerator\Footer.png" />
+    <Content Include="Content\Images\BusinessGenerator\gettingstarted.png" />
+    <Content Include="Content\Images\BusinessGenerator\LogoBGHeader.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\LogoBGHeader.png" />
+    <Content Include="Content\Images\BusinessGenerator\MembershipOptions.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\Minus.png" />
+    <Content Include="Content\Images\BusinessGenerator\NoImage120.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\NoImage160.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\PageBack.png" />
+    <Content Include="Content\Images\BusinessGenerator\PageForward.png" />
+    <Content Include="Content\Images\BusinessGenerator\Pending.png" />
+    <Content Include="Content\Images\BusinessGenerator\Plus.png" />
+    <Content Include="Content\Images\BusinessGenerator\Refresh.png" />
+    <Content Include="Content\Images\BusinessGenerator\SignUpDivide.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\Sponsor200X275.png" />
+    <Content Include="Content\Images\BusinessGenerator\Sponsor750X180.png" />
+    <Content Include="Content\Images\BusinessGenerator\Sponsor750X300.png" />
+    <Content Include="Content\Images\BusinessGenerator\SponsorC2Gold.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\SponsorC3Gold.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\SponsorC3Gold.jpg.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\SponsorC3Plat.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\SponsorC3Silver.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\SponsorsLogoHeader.jpg" />
+    <Content Include="Content\Images\BusinessGenerator\SponsorsLogoHeader.png" />
+    <Content Include="Content\Images\BusinessGenerator\Steps.png" />
+    <Content Include="Content\Images\BusinessGenerator\Steps123.png" />
+    <Content Include="Content\Images\BusinessGenerator\step_buyer.png" />
+    <Content Include="Content\Images\BusinessGenerator\step_company.png" />
+    <Content Include="Content\Images\BusinessGenerator\step_personal.png" />
+    <Content Include="Content\Images\BusinessGenerator\step_product.png" />
+    <Content Include="Content\Images\BusinessGenerator\step_upgrade.png" />
+    <Content Include="Content\Images\Shared\ClockBackground.png" />
+    <Content Include="Content\Images\Shared\google.png" />
+    <Content Include="Content\Images\Shared\GooglePlus.png" />
+    <Content Include="Content\Images\Shared\rss.png" />
+    <Content Include="Content\Images\BusinessGenerator\Search.png" />
+    <Content Include="Content\Images\BusinessGenerator\Show25.png" />
+    <Content Include="Content\Images\BusinessGenerator\Show50.png" />
+    <Content Include="Content\Images\BusinessGenerator\Show75.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\Images\jQueryUI_Themes\ui-lightness\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Images\Shared\BreakLineHorizontal.png" />
+    <Content Include="Content\Images\Shared\BreakLineVerticle.png" />
+    <Content Include="Content\Images\Shared\CTLogo.jpg" />
+    <Content Include="Content\Images\Shared\FaceBook.png" />
+    <Content Include="Content\Images\Shared\Linkedin.png" />
+    <Content Include="Content\Images\Shared\throbber.gif" />
+    <Content Include="Content\Images\Shared\Twitter.png" />
+    <Content Include="Content\Images\Shared\vcssecure_ns_15.jpg" />
+    <Content Include="Content\Images\Shared\VisaMaster.jpg" />
+    <Content Include="Content\Images\SponsorC3Silver.jpg" />
+    <Content Include="Content\Images\SponsorsLogoHeader.jpg" />
+    <Content Include="Content\Images\Tree\Choose-file2.png" />
+    <Content Include="Content\Images\Tree\d.png" />
+    <Content Include="Content\Images\Tree\file.png" />
+    <Content Include="Content\Images\Tree\folder.png" />
+    <Content Include="Content\Images\Tree\root.png" />
+    <Content Include="Content\Styles\acsLogin.css" />
+    <Content Include="Content\Styles\BusinessGeneratorSitev2.css" />
+    <Content Include="Content\Styles\jquery-ui-1.8.18.css" />
+    <Content Include="Content\Styles\jquery.Treeview-Stylesheet.css" />
+    <Content Include="Content\Styles\jquery.treeview.css" />
+    <Content Include="Content\Styles\jsTree.Theme.Metro.css" />
+    <Content Include="Content\Styles\treeView.DefaultStyle.css" />
+    <Content Include="Content\Styles\vakata-Stylesheet.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Scripts\googlePlusAsync.js" />
+    <Content Include="Scripts\pageManagementCore.js" />
+    <Content Include="Scripts\resizeManager.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="SubMenuWebmaster.json" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="google5ad3ab5dcf5f355b.html" />
+    <Content Include="MainMenu.json" />
+    <Content Include="Data\backup.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\CountryList.xml" />
+    <None Include="Properties\PublishProfiles\bizgen.cloudapp.net.pubxml" />
+    <None Include="Properties\PublishProfiles\Brics.pubxml" />
+    <None Include="Properties\PublishProfiles\LocalIIS.pubxml" />
+    <None Include="robots.txt.old" />
+    <Content Include="Scripts\acsLogin.js" />
+    <Content Include="Scripts\bricsClocks.js" />
+    <Content Include="Scripts\googleAnalytics.js" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\jquery.jstree.js" />
+    <Content Include="Scripts\jquery.livequery.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\site.js" />
+    <Content Include="SubMenuFindAProduct.json" />
+    <Content Include="SubMenuMyProfile.json" />
+    <Content Include="SubMenuResellerInformation.json" />
+    <Content Include="SubMenuWebmasterTools.json" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\GettingStarted.cshtml" />
+    <Content Include="Views\Account\GetSignupFormAsPartialView.cshtml" />
+    <Content Include="Views\Payment\Select.cshtml" />
+    <Content Include="Views\FeaturedProduct\GetProductHomeAsPartialView.cshtml" />
+    <Content Include="Views\FeaturedProduct\GetSilverGoldBannerAsPartialView.cshtml" />
+    <Content Include="Views\FeaturedProduct\GetPlatinumBannerAsPartialView.cshtml" />
+    <Content Include="Views\Product\GetMoreCompanyProductsAsPartialView.cshtml" />
+    <Content Include="Views\Company\Search.cshtml" />
+    <Content Include="Views\Company\GetSearchResultsAsPartialView.cshtml" />
+    <Content Include="Views\Reseller\SalesReportWebmaster.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Images\BricsPortfolio\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_BusinessGeneratorBanner.cshtml" />
+    <Content Include="Views\Shared\_BusinessGeneratorFooter.cshtml" />
+    <Content Include="Views\Shared\_BusinessGeneratorNavigation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_BusinessGeneratorLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DynamicMenu\RenderMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\SignUp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Install\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Install\CreateDefaultRoles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\UpdateUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Company\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\GetEditFormAsPartialView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\GetProductsAsPartialView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BuyerRequest\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BuyerRequest\GetEditFormAsPartialView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BuyerRequest\GetRequestsAsPartialView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Payment\PurchaseCallback.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Payment\PurchaseOk.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Payment\PurchaseDeclined.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Payment\Purchase.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Payment\VcsRequestAutoSubmit.cshtml" />
+    <Content Include="Views\Category\GetCategoryFilterAsPartialView.cshtml" />
+    <Content Include="Views\Category\GetCategoryDropdownAsPartialView.cshtml" />
+    <Content Include="Views\Product\GetSearchResultsAsPartialView.cshtml" />
+    <Content Include="Views\Company\RegisterAsGreenCertified.cshtml" />
+    <Content Include="Views\Company\RegisterAsChamberCertified.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Contact\SendMessage.cshtml" />
+    <Content Include="Views\Company\Details.cshtml" />
+    <Content Include="Views\BuyerRequest\Search.cshtml" />
+    <Content Include="Views\BuyerRequest\GetSearchResultsAsPartialView.cshtml" />
+    <None Include="Startup\Startup.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Views\Category\GetNavigationBreadcrumbAsPartialView.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordComplete.cshtml" />
+    <Content Include="Views\Account\SendResetPasswordEmail.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordComplete.cshtml" />
+    <Content Include="Views\Payment\UpdateDetailsRequest.cshtml" />
+    <Content Include="Views\Home\GettingStartedOld.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Company\MasterEdit.cshtml" />
+    <Content Include="Views\Product\MasterEdit.cshtml" />
+    <Content Include="Views\Error\KnownError.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug - LoadSampleDataOnStart|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug - LoadSampleDataOnStart|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseLocal|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseLocal|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>15000</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5000/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>

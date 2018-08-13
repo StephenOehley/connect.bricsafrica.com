@@ -1,0 +1,101 @@
+﻿@model BricsWeb.LocalModels.ProductViewModel
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { id = "productform" }))
+{
+    @Html.LabelFor(f => f.ProductData.ProductName)<br />
+    @Html.TextBoxFor(f => f.ProductData.ProductName, new { style = "width: 200px", @class = "required", accesskey = "n", id = "ProductName",title="e.g 'Canon EOS-550D'" })
+    <br />
+    <br />
+    @Html.Label("Product Photo")<br />
+    @Html.Label("(Recommended Size: 240px x 240px - 2MB)")
+    <br />
+    <br />
+    <img id="productphoto" src="@Model.ProductData.PhotoUrl" alt="notavailable"/>
+    <br />
+    <br />
+    <input id="photofile" type="file" name="photo" class="file" style="display: inline; width: 172px;" />
+    <br />
+    <br />
+    <label for="CategoryName">Select A Category From The Tree</label><br />
+    @Html.TextBoxFor(f => f.CategoryName, new { style = "width: 200px", @class = "required", accesskey = "n", disabled = "disabled" })
+    if (Model.ShowFeaturedProductOption)
+    {
+        <br />
+        <br />
+        @Html.LabelFor(f => f.IsFeaturedProduct, "Featured Product")<br />
+        @Html.CheckBoxFor(f => f.IsFeaturedProduct)
+    }
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.BrandName)<br />
+    @Html.TextBoxFor(f => f.ProductData.BrandName, new { style = "width: 200px", @class = "required", accesskey = "n",title="e.g 'Canon'"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.Description)<br />
+    @Html.TextAreaFor(f => f.ProductData.Description, new { style = "width: 200px;height: 250px", @class = "required", accesskey = "n",title = "Detailed description of product"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.FobPrice)<br />
+    @Html.TextBoxFor(f => f.ProductData.FobPrice, new { style = "width: 200px", @class = "required", accesskey = "n",title="Freight On Board Cost Per unit In USD" })
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.MinimumOrderQuantity)<br />
+    @Html.TextBoxFor(f => f.ProductData.MinimumOrderQuantity, new { style = "width: 200px", @class = "required", accesskey = "n",title ="Specify the minumum order quantity"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.Port)<br />
+    @Html.TextBoxFor(f => f.ProductData.Port, new { style = "width: 200px", @class = "required", accesskey = "n",title="Port from which the goods will be despatched" })
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.ModelNumber)<br />
+    @Html.TextBoxFor(f => f.ProductData.ModelNumber, new { style = "width: 200px", @class = "required", accesskey = "n",title ="e.g 'EOS-550D'" })
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.SupplyAbility)<br />
+    @Html.TextBoxFor(f => f.ProductData.SupplyAbility, new { style = "width: 200px", @class = "required", accesskey = "n" ,title = "Maxiumum number of units that can be supplied per week"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.PaymentTerms)<br />
+    @Html.TextBoxFor(f => f.ProductData.PaymentTerms, new { style = "width: 200px", @class = "required", accesskey = "n" ,title="e.g '50% cash on order, outstanding due on delivery'"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.PlaceOfOrigin)<br />
+    @Html.TextBoxFor(f => f.ProductData.PlaceOfOrigin, new { style = "width: 200px", @class = "required", accesskey = "n" ,title="This is the place of manufacture"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.CertificateNumber)<br />
+    @Html.TextBoxFor(f => f.ProductData.CertificateNumber, new { style = "width: 200px", @class = "required", accesskey = "n" ,title="If applicable list the certificate numbers for this product"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.Quality)<br />
+    @Html.TextBoxFor(f => f.ProductData.Quality, new { style = "width: 200px", @class = "required", accesskey = "n" ,title="Describe Proof of product quality such as certifications, e.g ISO-9000"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.Colour)<br />
+    @Html.TextBoxFor(f => f.ProductData.Colour, new { style = "width: 200px", @class = "required", accesskey = "n"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.PackagingAndDelivery)<br />
+    @Html.TextBoxFor(f => f.ProductData.PackagingAndDelivery, new { style = "width: 200px", @class = "required", accesskey = "n" ,title="e.g '500 units/standard 20 foot container'"})
+    <br />
+    <br />
+    @Html.LabelFor(f => f.ProductData.Specifications)<br />
+    @Html.TextBoxFor(f => f.ProductData.Specifications, new { style = "width: 200px", @class = "required", accesskey = "n" ,title="e.g '12 Megapixel CCD, 8GB Flash storage'"})
+    <br />
+    <br />
+    @Html.HiddenFor(f => f.ProductData.RowKey, new { id = "RowKey" })
+    @Html.HiddenFor(f => f.ProductData.CompanyID)
+    @Html.HiddenFor(f => f.ProductData.PartitionKey)
+    @Html.HiddenFor(f => f.ProductData.CategoryID, new { id = "CategoryID" })
+    @Html.HiddenFor(f => f.ProductData.PhotoUrl)
+    @Html.AntiForgeryToken()
+    <input type="submit" id="bSave" name="bSave" value="Save" accesskey="s" class="form-button"/>
+    <div id="productform-message">
+    </div>
+    <noscript>
+        <br />
+        <br />
+        <div class="tip">
+            Please enable javascript to use this page.
+        </div>
+    </noscript>
+}
